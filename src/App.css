@@ -1,3 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+* {
+	font-family: 'Roboto', sans-serif;
+    /* font-family: 'Montserrat', sans-serif; */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::selection {
+    color: white;
+    background: #0FE369;
+}
+
+::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #0FE369;
+}
+
 .App {
   text-align: center;
 }

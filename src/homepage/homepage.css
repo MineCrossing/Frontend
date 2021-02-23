@@ -1,0 +1,72 @@
+#homepage {
+    color: white;
+}
+
+#content {
+    background-color: whitesmoke;
+    color: black;
+}
+
+#content h1 {
+    font-family: 'RocknRoll One', sans-serif;
+
+    color: #0ed862;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+#welcome-paragraph {
+    margin: 4%;
+}
+
+#content hr {
+    width: 60%;
+}
+
+a {
+    color: #737373;
+}
+
+a:hover {
+    color: #0FE369;
+}
+
+.blog-post {
+    padding: 4%;
+    text-align: left;
+
+    display: flex;
+}
+
+.blog-post-person {
+    width: 64px;
+    height: 64px;
+
+    display: inline;
+}
+
+.blog-post-content {
+    display: inline;
+
+    margin: -2% 0 0 1%;
+}
+
+.blog-post-content-header {
+    display: inline;
+}
+
+.read-more {
+    color: white;
+    background-color: #0ed862;
+
+    padding: 0.7%;
+
+    border-radius: 2px;
+}
+
+.read-more:hover {
+    color: white;
+    background-color: #07662e;
+    
+    cursor: pointer;
+}

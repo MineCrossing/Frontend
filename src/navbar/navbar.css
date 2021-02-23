@@ -1,11 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-
-* {
-	font-family: 'Roboto', sans-serif;
-}
-
 .logo {
-	width: 400px;
+	width: 600px;
 }
 
 #nav-box {
@@ -14,7 +8,7 @@
 	display: inline-block;
 	text-align: center;
 
-	background-color: #fff;
+    background-color: whitesmoke;
 }
 
 #navbar {
@@ -27,6 +21,8 @@
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
+
+    background-color: whitesmoke;
 }
 
 #navbar li {
