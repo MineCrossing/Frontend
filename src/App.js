@@ -4,7 +4,8 @@ import Nav from "./navbar/navbar.js";
 import Homepage from './homepage/homepage.js';
 import Header from './header/header.js';
 import Footer from './footer/footer.js';
-import PageNotFound from './PageNotFound.js'
+import Map from './map/map.js';
+import PageNotFound from './PageNotFound.js';
 
 function App() {
 	return (
@@ -35,7 +36,7 @@ function App() {
                     </Route>
                     <Route exact path="/map">
                         <Nav page="map" />
-                        {/* <Map/> */}
+                        <Map />
                     </Route>
                     <Route exact path="/login">
                         <Nav page="login" />
