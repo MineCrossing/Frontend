@@ -25,6 +25,25 @@ body::-webkit-scrollbar-thumb {
     background-color: #0FE369;
 }
 
+#error {
+    width: 40%;
+    background-color: whitesmoke;
+    padding: 5%;
+    margin: 2%;
+}
+
+#safety {
+    background-color: #0FE369;
+    color: white;
+    font-weight: bold;
+    padding: 2%;
+    border-radius: 4px;
+}
+
+#safety:hover {
+    background-color: #188f49;
+}
+
 .App {
   text-align: center;
 }
