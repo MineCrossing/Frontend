@@ -1,0 +1,41 @@
+#chat-box {
+    width: 60%;
+    height: 500px;
+
+    margin-top: 2%;
+    padding: 1% 0 0 1%;
+
+    border: none;
+    border-radius: 2px;
+
+    overflow-y: scroll;
+
+    background-color: whitesmoke;
+
+    text-align: left;
+}
+
+#chat-entry {
+    width: 57%;
+
+    margin-bottom: 1%;
+
+    font-size: 1.2em;
+
+    background-color: rgba(191, 196, 200, 0.548);
+    border: none;
+    border-radius: 2px;
+    padding: 0.5%;
+}
+
+#send-chat {
+    background-color: #0a9b46;
+    color: rgb(255, 255, 255);
+
+    font-weight: bold;
+    font-size: 1.2em;
+
+    border: none;
+    border-radius: 2px;
+    padding: 0.5%;
+}
