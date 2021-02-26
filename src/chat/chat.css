@@ -39,3 +39,9 @@
     border-radius: 2px;
     padding: 0.5%;
 }
+
+#send-chat:hover {
+    background-color: #087033;
+
+    cursor: pointer;
+}
