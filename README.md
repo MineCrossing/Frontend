@@ -1,6 +1,9 @@
 # Frontend
 Frontend of the MineCrossing website
 
+## Prerequisites
+To run this project you will require [NodeJS/NPM](https://nodejs.org/en/)
+
 ## Running Locally
 When you want to run this app locally simply run `npm start` in your console. This will launch the app in development mode and create a local site at [http://localhost:3000](http://localhost:3000).
 
