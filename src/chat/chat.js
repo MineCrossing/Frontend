@@ -35,7 +35,7 @@ export default class Chat extends React.Component {
 		// Reset
 		inputBox.value = "";
 
-		console.log("Sending chat message: "+ msg);
+		console.log("Sending chat message: " + msg);
 
 		// Send message to API
 		let url = "https://api.minecrossing.xyz/chat/send";
@@ -48,7 +48,7 @@ export default class Chat extends React.Component {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify({ message : msg })
+			body: JSON.stringify({ message: msg })
 		})
 	}
 
@@ -70,7 +70,7 @@ export default class Chat extends React.Component {
 						))
 					}
 				</div>
-				
+
 				<input id="chat-entry" placeholder="> message" onChange={this.updateText} onKeyDown={this.sendMessageEnter}></input>
 				<button id="send-chat" onClick={this.sendMessage}>Send</button>
 			</div>
@@ -84,7 +84,7 @@ export default class Chat extends React.Component {
 			fetch(url)
 				.then((response) => response.json())
 				.then((data) => {
-					this.setState({data: data})
+					this.setState({ data: data })
 				})
 				.catch((err) => {
 					console.log("something went wrong ", err)
@@ -94,6 +94,6 @@ export default class Chat extends React.Component {
 
 	componentWillUnmount() {
 		clearInterval(this.interval);
-	  }
+	}
 
 }
