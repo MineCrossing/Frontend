@@ -1,0 +1,63 @@
+#rules-h1 {
+    padding-bottom: 15px;
+}
+
+#rules-nav{
+    list-style-type: none;
+    text-align: center;
+    
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+}
+
+li {
+    display: inline;   
+}
+
+li a {
+    color: #666;
+
+
+    font-weight: 300px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+h2{
+    color: #0ed862;
+    font-weight: bold;
+}
+
+#content-paragraph {
+    margin: 4%;
+}
+
+#mc-rules{
+    color: #0ed862;
+    font-weight: bold;
+}
+
+#chat-rules {
+    color: #0ed862;
+    font-weight: bold;
+}
+
+#store-rules{
+    color: #0ed862;
+    font-weight: bold;
+}
+
+#tos{
+    color: #0ed862;
+    font-weight: bold;
+
+}
+
+#pp{
+    color: #0ed862;
+    font-weight: bold;
+}
