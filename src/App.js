@@ -5,6 +5,7 @@ import Homepage from './homepage/homepage.js';
 import Header from './header/header.js';
 import Footer from './footer/footer.js';
 import Map from './map/map.js';
+import Chat from './chat/chat.js';
 import PageNotFound from './PageNotFound.js';
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
                     </Route>
                     <Route exact path="/chat">
                         <Nav page="chat" />
-                        {/* <Chat/> */}
+                        <Chat />
                     </Route>
                     <Route exact path="/map">
                         <Nav page="map" />
