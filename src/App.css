@@ -15,7 +15,7 @@ html {
     color: white;
     background: #0FE369;
 }
-
+/* 
 ::-webkit-scrollbar {
     width: 9px;
     height: 9px;
@@ -23,7 +23,7 @@ html {
 
 body::-webkit-scrollbar-thumb {
     background-color: #0FE369;
-}
+} */
 
 #error {
     width: 40%;

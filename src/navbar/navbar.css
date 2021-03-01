@@ -1,51 +1,53 @@
 .logo {
-	width: 600px;
+    width: 600px;
 }
 
 #nav-box {
-	width: 100%;
+    width: 100%;
 
-	display: inline-block;
-	text-align: center;
+    display: inline-block;
+    text-align: center;
 
     background-color: whitesmoke;
 }
 
 #navbar {
-	width: 45%;
+    width: 45%;
 
-	display: inline-block;
-	list-style-type: none;
-	text-align: center;
+    display: inline-block;
+    list-style-type: none;
+    text-align: center;
 
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 
     background-color: whitesmoke;
 }
 
 #navbar li {
-	float: left;
+    float: left;
 }
 
 #navbar li a {
-	display: block;
-	color: #666;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
+    display: block;
+
+    color: #666;
+    text-decoration: none;
+
+    text-align: center;
+    padding: 14px 16px;
 }
 
 #navbar li a:hover:not(.active) {
-	background-color: #ddd;
+    background-color: #ddd;
 }
 
 #navbar li a.active {
-	color: #f3f3f3;
-	background-color: #0FE369;
+    color: #f3f3f3;
+    background-color: #0FE369;
 }
 
 #navbar li a.active:hover {
-	background-color: #0ed862;
+    background-color: #0ed862;
 }
