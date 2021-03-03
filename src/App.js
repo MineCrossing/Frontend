@@ -26,8 +26,8 @@ function App() {
                         {/* <Blog/> */}
                     </Route>
                     <Route exact path="/leaderboards">
-                        {/* <Nav page="leaderboards" />
-                        <Leaderboard /> */}
+                        <Nav page="leaderboards" />
+                        {/* <Leaderboard /> */}
                     </Route>
                     <Route exact path="/rules">
                         <Nav page="rules" />
