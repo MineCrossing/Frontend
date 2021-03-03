@@ -1,7 +1,3 @@
-#rules-h1 {
-    padding-bottom: 15px;
-}
-
 #rules-nav{
     list-style-type: none;
     text-align: center;
@@ -31,9 +27,15 @@ h2{
     color: #0ed862;
     font-weight: bold;
 }
+dd{
+    display: block;
+    margin-inline-start: 0;
+}
 
-#content-paragraph {
-    margin: 4%;
+dt{
+    color: #0ed862;
+    font-weight: bold;
+    font-style: italic;
 }
 
 #mc-rules{
