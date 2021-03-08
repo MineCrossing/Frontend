@@ -15,10 +15,7 @@ const PreviewBlogsList = props => {
     );
 
     return (
-        <div>
-
-        </div>
-        /*blogs.map((blog, i) => <PreviewBlog blog={blog} key={i}/>)*/
+        blogs.map((blog, i) => <PreviewBlog blog={blog} key={i}/>)
     );
 };
 
