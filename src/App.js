@@ -9,6 +9,7 @@ import Map from './map/map.js';
 import Rules from './rules/rules.js';
 import Chat from './chat/chat.js';
 import PageNotFound from './PageNotFound.js';
+import BlogHome from "./blog/BlogHome";
 
 function App() {
 	return (
@@ -23,7 +24,7 @@ function App() {
                     </Route>
                     <Route exact path="/blog">
                         <Nav page="blog" />
-                        {/* <Blog/> */}
+                        <BlogHome/>
                     </Route>
                     <Route exact path="/leaderboards">
                         <Nav page="leaderboards" />
@@ -49,8 +50,6 @@ function App() {
                         <PageNotFound/>
                     </Route>
                 </Switch>
-
-                <br />
 
                 <Footer />
             </div>

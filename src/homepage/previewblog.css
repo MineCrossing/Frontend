@@ -1,0 +1,74 @@
+.preview-blog-container {
+    padding: 2em;
+    margin-bottom: 4em;
+}
+
+.preview-blog-container .separator {
+    margin: 1em auto;
+}
+
+.preview-blog-title-container {
+    width: 70%;
+    margin-right: auto;
+}
+
+.preview-blog-container h2 {
+    font-size: 2.5em;
+    text-align: left;
+    font-weight: 500;
+    color: #0ed862;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.preview-blog-subtitle {
+    text-align: left;
+    font-size: 1.2em;
+    color: rgba(0,0,0,0.8) !important;
+    margin: 0.1em 0;
+}
+
+.preview-blog-container-flex {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
+
+.preview-blog-container-flex > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.preview-blog-soft-text {
+    padding: 0 0.2em;
+    color: rgba(0,0,0,0.7);
+    margin: 0 0 0.5em 0;
+    font-size: 0.9em;
+    text-align: left;
+}
+
+.preview-blog-soft-text > i {
+    padding-right: 0.5em;
+    color: rgba(0,0,0,0.6)
+}
+
+.preview-blog-container a {
+    padding: 0.5em;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #0ed862;
+    transition: all 0.25s ease;
+    display: block;
+    width: 5em;
+    margin: 0 auto;
+}
+
+.preview-blog-container a:hover {
+    background-color: #0f9348;
+}
+
+.preview-blog-preview {
+    text-align: justify;
+}
+
+

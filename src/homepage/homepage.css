@@ -1,72 +1,39 @@
 #homepage {
-    color: white;
+    min-height: 100vh;
+    background-color: #fcfcfc;
 }
 
-#content {
-    background-color: whitesmoke;
-    color: black;
-}
-
-#content h1 {
-    font-family: 'RocknRoll One', sans-serif;
-
-    color: #0ed862;
-    font-weight: bold;
-    font-size: 2em;
-}
-
-#welcome-paragraph {
-    margin: 4%;
-}
-
-#content hr {
-    width: 60%;
-}
-
-a {
-    color: #737373;
-}
-
-a:hover {
-    color: #0FE369;
-}
-
-.blog-post {
-    padding: 4%;
+.homepage-header {
+    font-size: 2.5em;
+    font-weight: 800;
     text-align: left;
+    margin: 0 auto;
+    font-family: "RocknRoll One", sans-serif;
+    color: #0ed862;
+}
 
+#discover-container  {
+    width: 60%;
+    margin: 0 auto 2em auto;
+    padding-top: 2em;
+}
+
+.discover-card-flex {
     display: flex;
 }
 
-.blog-post-person {
-    width: 64px;
-    height: 64px;
-
-    display: inline;
+.discover-intro {
+    text-align: justify;
+    margin: 0 0 1em 0;
 }
 
-.blog-post-content {
-    display: inline;
-
-    margin: -2% 0 0 1%;
+#latest-news {
+    width: 60%;
+    margin: auto;
+    padding-bottom: 4em;
 }
 
-.blog-post-content-header {
-    display: inline;
+.preview-blog-container:last-child {
+    margin-bottom: 0;
 }
 
-.read-more {
-    color: white;
-    background-color: #0ed862;
-
-    padding: 0.7%;
-
-    border-radius: 2px;
-}
-
-.read-more:hover {
-    color: white;
-    background-color: #07662e;
-    
-    cursor: pointer;
-}
