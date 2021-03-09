@@ -1,7 +1,31 @@
 #blog-home {
     min-height: 100vh;
-    width: 60%;
-    margin: auto;
     padding-top: 2em;
 }
+
+.blog-header-container {
+    width: 80%;
+    margin: auto;
+}
+
+.blog-home-content {
+    display: flex;
+    width: 80%;
+    margin: 2em auto;
+}
+
+.blog-home-filter-container {
+    width: 15%;
+}
+
+.blog-home-blog-container {
+    width: 80%;
+    margin-left: auto;
+}
+
+.blog-subheader {
+    text-align: left;
+    color: #2c2c2c;
+}
+
 

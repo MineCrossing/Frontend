@@ -16,16 +16,19 @@ function Homepage() {
                     <div className={"discover-card-flex"}>
                         <DiscoverCard
                             title={"store"}
+                            link={"https://store.minecrossing.xyz"}
                             icon={"fas fa-shopping-cart"}
                             text={"Unlock cosmetics, power-ups, ranks and more"}
                         />
                         <DiscoverCard
                             title={"chat"}
+                            link={"/chat"}
                             icon={"fas fa-comments"}
                             text={"Live, instant, two way chat from your browser to the server"}
                         />
                         <DiscoverCard
                             title={"leaderboards"}
+                            link={"/leaderboards"}
                             icon={"fas fa-chart-bar"}
                             text={"Compete against friends for leaderboard rankings"}
                         />
