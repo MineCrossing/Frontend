@@ -18,15 +18,6 @@
     padding-top: 2em;
 }
 
-.discover-card-flex {
-    display: flex;
-}
-
-.discover-intro {
-    text-align: justify;
-    margin: 0 0 1em 0;
-}
-
 #latest-news {
     width: 60%;
     margin: auto;

@@ -43,3 +43,13 @@
     font-size: 0.95em;
 }
 
+.discover-card-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.discover-intro {
+    text-align: justify;
+    margin: 0 0 1em 0;
+}
+

@@ -4,7 +4,8 @@
 
 .filter-picker-header {
     text-align: left;
-    font-size: 1.5em;
+    font-size: 1.3em;
+    margin: 0 0 1em 0;
     color: #2c2c2c;
 }
 
@@ -12,7 +13,7 @@
     display: flex;
     flex-direction: column;
     padding: 0;
-    margin: 0;
+    margin: 0 0 1em 0;
 }
 
 .filter-picker-container li  {
