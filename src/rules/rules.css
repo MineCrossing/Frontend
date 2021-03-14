@@ -23,6 +23,11 @@ a:link {
     text-decoration: none;
 }
 
+a:hover {
+    color: #0FE369;
+}
+
+
 dd{
     display: block;
     margin-inline-start: 0;
