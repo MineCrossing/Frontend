@@ -10,6 +10,7 @@ import Rules from './rules/rules.js';
 import Chat from './chat/chat.js';
 import PageNotFound from './PageNotFound.js';
 import BlogHome from "./blog/BlogHome";
+import CreateBlog from "./blog/CreateBlog";
 
 function App() {
 	return (
@@ -25,6 +26,10 @@ function App() {
                     <Route exact path="/blog">
                         <Nav page="blog" />
                         <BlogHome/>
+                    </Route>
+                    <Route exact path="/createblog">
+                        <Nav page="createblog" />
+                        <CreateBlog/>
                     </Route>
                     <Route exact path="/leaderboards">
                         <Nav page="leaderboards" />
