@@ -5,7 +5,7 @@ import Homepage from './homepage/homepage.js';
 import Header from './header/header.js';
 import Footer from './footer/footer.js';
 import Map from './map/map.js';
-// import Leaderboard from './leaderboard/leaderboard.js';
+import Leaderboard from './leaderboard/leaderboard.js';
 import Rules from './rules/rules.js';
 import Chat from './chat/chat.js';
 import PageNotFound from './PageNotFound.js';
@@ -27,7 +27,7 @@ function App() {
                     </Route>
                     <Route exact path="/leaderboards">
                         <Nav page="leaderboards" />
-                        {/* <Leaderboard /> */}
+                        <Leaderboard />
                     </Route>
                     <Route exact path="/rules">
                         <Nav page="rules" />

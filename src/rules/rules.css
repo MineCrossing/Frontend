@@ -23,10 +23,11 @@ a:link {
     text-decoration: none;
 }
 
-h2{
-    color: #0ed862;
-    font-weight: bold;
+a:hover {
+    color: #0FE369;
 }
+
+
 dd{
     display: block;
     margin-inline-start: 0;
@@ -36,6 +37,12 @@ dt{
     color: #0ed862;
     font-weight: bold;
     font-style: italic;
+}
+
+hr{
+    border-color:#0ed862;
+    background-color: #0ed862;
+    opacity: .4;
 }
 
 #mc-rules{
@@ -53,13 +60,18 @@ dt{
     font-weight: bold;
 }
 
-#tos{
+#support{
+    color: #0ed862;
+    font-weight: bold;
+}
+
+#service{
     color: #0ed862;
     font-weight: bold;
 
 }
 
-#pp{
+#privacy{
     color: #0ed862;
     font-weight: bold;
 }
