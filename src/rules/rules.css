@@ -39,6 +39,12 @@ dt{
     font-style: italic;
 }
 
+hr{
+    border-color:#0ed862;
+    background-color: #0ed862;
+    opacity: .4;
+}
+
 #mc-rules{
     color: #0ed862;
     font-weight: bold;

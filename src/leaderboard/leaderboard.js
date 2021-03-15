@@ -21,6 +21,7 @@ export default class Leaderboard extends React.Component {
 				<div id="content" className="pure-u-3-5">
 
 					<h1>Welcome to the Leaderboard!</h1>
+
 					<table className="table" cellSpacing="0">
 						<thead>
 							<tr>
@@ -35,11 +36,6 @@ export default class Leaderboard extends React.Component {
 							</tr>
 						</thead>
 						<tbody>
-						{
-						players.map((name, id) => (
-							<p key={id}>{name}</p>
-						))
-						}
 						</tbody>
 					</table>
 					<br />
