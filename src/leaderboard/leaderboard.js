@@ -20,7 +20,7 @@ export default class Leaderboard extends React.Component {
 			<div id="homepage">
 				<div id="content" className="pure-u-3-5">
 
-					<h1>Welcome to the Leaderboard!</h1>
+					<h1 class="rules-header">Welcome to the Leaderboard!</h1>
 
 					<table className="table" cellSpacing="0">
 						<thead>

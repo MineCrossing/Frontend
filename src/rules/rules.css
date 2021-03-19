@@ -8,6 +8,16 @@
 
 }
 
+.rules-header {
+    font-size: 2.5em;
+    font-weight: 800;
+    margin: 0 auto;
+    font-family: "RocknRoll One", sans-serif;
+    color: #0ed862;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 li {
     display: inline;   
 }
