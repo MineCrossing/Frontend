@@ -18,10 +18,10 @@ function Footer() {
                     <div className="footer-extras pure-u-1-3">
                         <h6>Links</h6>
                         <ul className="footer-links">
-                            <li><a href="#">World Map</a></li>
-                            <li><a href="#">API</a></li>
-                            <li><a href="#">Something</a></li>
-                            <li><a href="#">Other</a></li>
+                            <li><a href="//map.minecrossing.xyz" target="_blank">World Map</a></li>
+                            <li><a href="//api.minecrossing.xyz" target="_blank">API</a></li>
+                            <li><a href="//discord.minecrossing.xyz" target="_blank">Discord</a></li>
+                            <li><a href="//play.minecrossing.xyz" target="_blank">Minecraft</a></li>
                         </ul>
                     </div>
 

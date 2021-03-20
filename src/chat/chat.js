@@ -62,18 +62,28 @@ export default class Chat extends React.Component {
 		}
 
 		return (
-			<div id="chat-container">
-				<div id="chat-box" className="pure-u-1-3">
-					{
-						chat.map((message, id) => (
-							<p key={id}>{message}</p>
-						))
-					}
-				</div>
+            <div>
+                <h1 className="text-header">Chat</h1>
+                <p>
+                    This is our in-game chat hook that interacts with our backend API endpoint that communicates directly with the game server!
+                    <br />
+                    <br />
+                    You can communicate with the players in-game by typing into the message box and clicking send!
+                </p>
 
-				<input id="chat-entry" placeholder="> message" onChange={this.updateText} onKeyDown={this.sendMessageEnter}></input>
-				<button id="send-chat" onClick={this.sendMessage}>Send</button>
-			</div>
+                <div id="chat-container">
+                    <div id="chat-box" className="pure-u-1-3">
+                        {
+                            chat.map((message, id) => (
+                                <p key={id}>{message}</p>
+                            ))
+                        }
+                    </div>
+
+                    <input id="chat-entry" placeholder="> message" onChange={this.updateText} onKeyDown={this.sendMessageEnter}></input>
+                    <button id="send-chat" onClick={this.sendMessage}>Send</button>
+                </div>
+            </div>
 		)
 	}
 

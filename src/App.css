@@ -25,6 +25,14 @@ body::-webkit-scrollbar-thumb {
     background-color: #0FE369;
 } */
 
+.text-header {
+    font-family: 'RocknRoll One', sans-serif;
+
+    color: #0ed862;
+    font-weight: bold;
+    font-size: 2em;
+}
+
 #error {
     width: 40%;
     background-color: whitesmoke;
