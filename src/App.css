@@ -30,10 +30,10 @@ html {
     opacity: 1;
 }
 
-::selection {
+/*::selection {
     color: white;
     background: #0FE369;
-}
+}*/
 /* 
 ::-webkit-scrollbar {
     width: 9px;
