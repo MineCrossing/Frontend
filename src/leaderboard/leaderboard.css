@@ -68,3 +68,21 @@ table {
 
     border-bottom: 2px solid #0ed862;
 }
+
+.pageBtn {
+    background-color: #0ed862;
+    color: white;
+
+    padding: 0.5%;
+    margin: 1%;
+    width: 10%;
+
+    border: none;
+    border-radius: 5px;
+}
+
+.pageBtn:hover {
+    background-color: #079543;
+    
+    cursor: pointer;
+}
