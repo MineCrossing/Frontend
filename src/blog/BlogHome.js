@@ -10,7 +10,7 @@ const BlogHome = props => {
     const [blogs, setBlogs] = useState([]);
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-    const monthIntFromString = (month) => months.indexOf(month);logo192.png
+    const monthIntFromString = (month) => months.indexOf(month);
     const monthStringFromInt = (month) => months[month];
     const getBlogDate = (date) => new Date(Date.parse(date));
 
