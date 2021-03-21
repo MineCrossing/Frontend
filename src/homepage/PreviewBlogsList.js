@@ -1,21 +1,14 @@
 import './previewblog.css';
-import React, { useState, useEffect } from 'react';
-import Endpoints from "../utils/Endpoints";
+import React from 'react';
 import PreviewBlog from "./PreviewBlog";
 
 const PreviewBlogsList = props => {
-    const [blogs, setBlogs] = useState([]);
-
-    useEffect(() => {
-            fetch(Endpoints.BLOG_POSTS_PREVIEW)
-                .then( (response) => response.json() )
-                .then( (data) => setBlogs(data))
-                .catch ((err) => {console.log("something went wrong ", err)});
-        }
-    );
+    const content = props.blogs == null ?
+        <div>No Blogs to display</div> :
+        props.blogs.map((blog, i) => <PreviewBlog blog={blog} key={i}/>);
 
     return (
-        blogs.map((blog, i) => <PreviewBlog blog={blog} key={i}/>)
+        content
     );
 };
 

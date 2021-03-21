@@ -1,9 +1,20 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './homepage.css';
 import DiscoverCard from "./DiscoverCard";
 import PreviewBlogsList from "./PreviewBlogsList";
+import Endpoints from "../utils/Endpoints";
 
 function Homepage() {
+    const [blogs, setBlogs] = useState([]);
+
+    useEffect(() => {
+            fetch(Endpoints.BLOG_POSTS_PREVIEW)
+                .then( (response) => response.json() )
+                .then( (data) => setBlogs(data))
+                .catch ((err) => {console.log("something went wrong ", err)});
+        }
+    );
+
     return (
         <main id="homepage">
             <section id={"discover-container"}>
@@ -37,7 +48,7 @@ function Homepage() {
             <section id={"latest-news"}>
                 <h2 className={"homepage-header"}>Latest News</h2>
                 <span className={"separator"}> </span>
-                <PreviewBlogsList/>
+                <PreviewBlogsList blogs={blogs}/>
             </section>
         </main>
     );
