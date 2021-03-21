@@ -1,21 +1,13 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import "./blogfilterpicker.css"
+import * as ReactDOM from "react-dom";
 
 const BlogFilterPicker = props => {
-    const [lastSelected, setLastSelected] = useState(null);
-
-    const handleSelection = (e) => {
-        lastSelected?.classList.remove("selected");
-        setLastSelected(e.target);
-        e.target.classList.add("selected");
-        props.onClick(e);
-    };
-
     return (
         <div className={"filter-picker-container"}>
             <h2 className={"filter-picker-header"}>{props.title}</h2>
             <ul>
-                {props.options.map((o, i) => <li key={i} onClick={(e) => handleSelection(e)}>{o}</li>)}
+                {props.options.map((o, i) => <li className={o === props.selected ? "selected" : ""} key={i} onClick={props.onClick}>{o}</li>)}
             </ul>
         </div>
     );

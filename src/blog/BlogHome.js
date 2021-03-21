@@ -10,9 +10,23 @@ const BlogHome = props => {
     const [blogs, setBlogs] = useState([]);
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-    const monthIntFromString = (month) => months.indexOf(month);
+    const monthIntFromString = (month) => months.indexOf(month);logo192.png
     const monthStringFromInt = (month) => months[month];
     const getBlogDate = (date) => new Date(Date.parse(date));
+
+    const getMonthOptions = (selectedYear) => [... new Set(blogs
+        .filter(b => getBlogDate(b?.date).getFullYear() == (selectedYear ?? year))
+        .map(b => monthStringFromInt(getBlogDate(b?.date).getMonth()))
+        .sort((a, b) => monthIntFromString(a) - monthIntFromString(b))
+    )];
+
+    const handleYearChange = (year) => {
+        setYear(parseInt(year));
+        const monthOptions = getMonthOptions(year);
+        console.log([year, month, monthOptions]);
+        if (monthOptions.length > 0 && !monthOptions.includes(monthStringFromInt(month)))
+            setMonth(monthIntFromString(monthOptions[0]))
+    };
 
     useEffect(() => {
             fetch(Endpoints.BLOG_POSTS_PREVIEW_ALL)
@@ -32,16 +46,14 @@ const BlogHome = props => {
                 <section className={"blog-home-filter-container"}>
                     <BlogFilterPicker
                         title={"Year"}
+                        selected={year}
                         options={[... new Set(blogs.map(b => getBlogDate(b?.date).getFullYear()))]}
-                        onClick={e => setYear(parseInt(e.target.innerText))}
+                        onClick={e => handleYearChange(e.target.innerText)}
                     />
                     <BlogFilterPicker
                         title={"Month"}
-                        options={[... new Set(blogs
-                            .filter(b => getBlogDate(b?.date).getFullYear() === year)
-                            .map(b => monthStringFromInt(getBlogDate(b?.date).getMonth()))
-                            .sort((a, b) => monthIntFromString(a) - monthIntFromString(b))
-                        )]}
+                        selected={monthStringFromInt(month)}
+                        options={getMonthOptions()}
                         onClick={e => setMonth(monthIntFromString(e.target.innerText))}
                     />
                 </section>

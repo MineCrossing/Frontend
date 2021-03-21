@@ -14,7 +14,7 @@ export default class Navbar extends React.Component {
                     <li><a className={this.props.page == "chat" ? "active" : ""} href="/chat"><i className="fas fa-comments"></i> Chat</a></li>
                     <li><a className={this.props.page == "map" ? "active" : ""} href="/map"><i className="fas fa-map-marked-alt"></i> World Map</a></li>
                     <li><a id="store" href="https://store.minecrossing.xyz"><i className="fas fa-shopping-cart"></i> Store</a></li>
-                    <li><a className={this.props.page == "login" ? "active" : ""} href="/login"><i className="fas fa-sign-in-alt"></i> Login</a></li>
+                    <li><a className={this.props.page == "login" ? "active" : ""} href="https://store.minecrossing.xyz/login"><i className="fas fa-sign-in-alt"></i> Login</a></li>
                 </ul>
             </div>
         )

@@ -45,11 +45,11 @@ function App() {
                         </Route>
                         <Route exact path="/blog">
                             <Nav page="blog" />
-                            <BlogHome/>
+                            <BlogHome />
                         </Route>
                         <Route exact path="/createblog">
                             <Nav page="createblog" />
-                            <CreateBlog/>
+                            <CreateBlog />
                         </Route>
                         <Route exact path="/leaderboards">
                             <Nav page="leaderboards" />
@@ -72,7 +72,8 @@ function App() {
                             {/* <Login/> */}
                         </Route>
                         <Route path="*">
-                            <PageNotFound/>
+                            <Nav />
+                            <PageNotFound />
                         </Route>
                     </Switch>
                 </MuiThemeProvider>

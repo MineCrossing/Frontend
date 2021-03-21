@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../images/logo.png';
 import './header.css';
 
-function Navbar() {
+function Header() {
 	return (
 		<header>
             <img src={logo} className="logo pure-img pure-u-1-3" alt="logo" />
@@ -10,4 +10,4 @@ function Navbar() {
 	)
 }
 
-export default Navbar;
+export default Header;
