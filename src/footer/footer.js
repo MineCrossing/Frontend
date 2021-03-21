@@ -44,10 +44,10 @@ function Footer() {
 
                 <div className="footer-social pure-u-3-5">
                     <ul className="social-icons">
-                        <li><a className="facebook" href="#"><i className="fab fa-facebook-square"></i></a></li>
-                        <li><a className="twitter" href="#"><i className="fab fa-twitter-square"></i></a></li>
-                        <li><a className="github" href="#"><i className="fab fa-github"></i></a></li>
-                        <li><a className="youtube" href="#"><i className="fab fa-youtube-square"></i></a></li>   
+                        <li><a className="facebook" href="//facebook.com/MineCrossing" target="_blank"><i className="fab fa-facebook-square"></i></a></li>
+                        <li><a className="twitter" href="//twitter.com/MineCrossingMC" target="_blank"><i className="fab fa-twitter-square"></i></a></li>
+                        <li><a className="github" href="//github.com/MineCrossing" target="_blank"><i className="fab fa-github"></i></a></li>
+                        <li><a className="youtube" href="//youtube.com/MineCrossing" target="_blank"><i className="fab fa-youtube-square"></i></a></li>   
                     </ul>
                 </div>
             </div>

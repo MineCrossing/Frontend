@@ -46,6 +46,8 @@
 #navbar li a.active {
     color: #f3f3f3;
     background-color: #0FE369;
+
+    font-weight: bold;
 }
 
 #navbar li a.active:hover {

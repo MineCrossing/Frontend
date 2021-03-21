@@ -65,7 +65,7 @@ export default class Chat extends React.Component {
             <div>
                 <h1 className="text-header">Chat</h1>
                 <p>
-                    This is our in-game chat hook that interacts with our backend API endpoint that communicates directly with the game server!
+                    This is our in-game chat hook that interacts with our backend API endpoint to communicate directly with the game server!
                     <br />
                     <br />
                     You can communicate with the players in-game by typing into the message box and clicking send!
