@@ -3,6 +3,16 @@ table, th, td {
     font-size: 1.1rem;
   }
 
+  .rules-header {
+    font-size: 2.5em;
+    font-weight: 800;
+    margin: 0 auto;
+    font-family: "RocknRoll One", sans-serif;
+    color: #0ed862;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
 table {
     border-spacing: 20px;
 }
@@ -40,7 +50,7 @@ table {
 }
 
 .table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
+    background-color: #e2e2e2;
 }
 
 .table tbody tr:last-of-type {
