@@ -57,7 +57,7 @@ export default class Leaderboard extends React.Component {
 			<div id="homepage">
 				<div id="content" className="pure-u-3-5">
 
-					<h1 className="rules-leaderboard">Welcome to the Leaderboard!</h1>
+					<h1 className="leaderboard-header">Welcome to the Leaderboard!</h1>
 
 					<table className="table" cellSpacing="0">
 						<thead>
@@ -87,7 +87,7 @@ export default class Leaderboard extends React.Component {
 	}
 
 	componentDidMount() {
-		let url = "http://localhost:8081/players";
+		let url = "https://api.minecrossing.xyz/players";
 
 		fetch(url)
 			.then((response) => response.json())
