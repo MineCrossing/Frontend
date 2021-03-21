@@ -46,6 +46,7 @@ function App() {
                         {/* <Login/> */}
                     </Route>
                     <Route path="*">
+                        <Nav />
                         <PageNotFound/>
                     </Route>
                 </Switch>

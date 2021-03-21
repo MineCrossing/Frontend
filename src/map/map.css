@@ -4,5 +4,17 @@
 
 #world-map {
     width: 80%;
-    height: 800px;
+    height: 50em;
+
+    border: none;
+    border-radius: 5px;
+
+    box-shadow: 5px 5px 15px black;
+}
+
+code {
+    background-color: rgb(204, 204, 204);
+
+    padding: 2px 5px;
+    border-radius: 5px;
 }
