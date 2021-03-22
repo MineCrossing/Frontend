@@ -73,9 +73,6 @@ const useStyles = makeStyles((theme) => ({
         width: "fit-content",
         margin: 0,
         display: "block",
-        "&:hover": {
-            color: "#FFF"
-        },
         "&:first-child": {
             margin: theme.spacing(0, 1, 0, "auto")
         }

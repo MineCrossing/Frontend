@@ -30,6 +30,10 @@ html {
     opacity: 1;
 }
 
+.MuiButtonBase-root:hover {
+    color: #FFF;
+}
+
 /*::selection {
     color: white;
     background: #0FE369;
