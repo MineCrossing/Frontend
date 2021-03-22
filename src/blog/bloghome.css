@@ -23,10 +23,14 @@
     margin-left: auto;
 }
 
+.blog-subheader-container {
+    display: flex;
+}
+
 .blog-subheader {
     text-align: left;
     color: #2c2c2c;
-    margin: 0 0 1em 0;
+    margin: 0 auto 0 0;
     font-size: 1.3em;
 }
 

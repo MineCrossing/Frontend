@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react';
 import PreviewBlogsList from "../homepage/PreviewBlogsList";
 import BlogFilterPicker from "./BlogFilterPicker";
 import Endpoints from "../utils/Endpoints";
+import Button from "@material-ui/core/Button";
 
 const BlogHome = props => {
     const [year, setYear] = useState(new Date().getFullYear());
@@ -58,7 +59,10 @@ const BlogHome = props => {
                     />
                 </section>
                 <section className={"blog-home-blog-container"}>
-                    <h2 className={"blog-subheader"}>{`Blogs from ${monthStringFromInt(month)}, ${year}`}</h2>
+                    <div className={"blog-subheader-container"}>
+                        <h2 className={"blog-subheader"}>{`Blogs from ${monthStringFromInt(month)}, ${year}`}</h2>
+                        <Button variant={"contained"} color={"primary"} href={"/createblog"}>Create New</Button>
+                    </div>
                     <span className={"separator"}> </span>
                     <PreviewBlogsList blogs={blogs?.filter(b => getBlogDate(b?.date).getMonth() === month && getBlogDate(b?.date).getFullYear() === year)}/>
                 </section>
