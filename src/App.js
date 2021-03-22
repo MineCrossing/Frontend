@@ -13,6 +13,7 @@ import BlogHome from "./blog/BlogHome";
 import CreateBlog from "./blog/CreateBlog";
 import React from "react";
 import {createMuiTheme, MuiThemeProvider} from "@material-ui/core";
+import ViewBlog from "./blog/ViewBlog";
 
 const theme = createMuiTheme({
     palette: {
@@ -70,6 +71,8 @@ function App() {
                         <Route exact path="/login">
                             <Nav page="login" />
                             {/* <Login/> */}
+                        </Route>
+                        <Route exact path="/viewblog/:id" component={ViewBlog}>
                         </Route>
                         <Route path="*">
                             <Nav />

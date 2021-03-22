@@ -26,7 +26,7 @@ const PreviewBlog = props => {
             </div>
             <span className={"separator"}> </span>
             <p className={"preview-blog-preview"}>{props.blog.preview.replace(/[&\/\\#+()$~%:*<>{}]/g,'')} ...</p>
-            <Button className={"read-more-button"} variant={"contained"} color={"primary"} href={"/"}>Read More</Button>
+            <Button className={"read-more-button"} variant={"contained"} color={"primary"} href={`/viewblog/${props.blog.blogPostID}`}>Read More</Button>
         </div>
     );
 };

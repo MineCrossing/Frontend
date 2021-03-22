@@ -5,6 +5,7 @@ class Endpoints {
     static BLOG_POSTS_PREVIEW = this.BLOG_POSTS + 'preview/';
     static BLOG_POSTS_PREVIEW_ALL = this.BLOG_POSTS + 'previewAll/';
     static BLOG_POSTS_CREATE = this.BLOG_POSTS + 'create/';
+    static BLOG_POSTS_GET = this.BLOG_POSTS + 'get/';
 }
 
 export default Endpoints;
