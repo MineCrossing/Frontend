@@ -39,43 +39,31 @@ function App() {
             <div className="App">
                 <MuiThemeProvider theme={theme}>
                     <Header img="" />
+                    <Nav />
                     <Switch>
                         <Route exact path="/">
-                            <Nav page="homepage" />
                             <Homepage />
                         </Route>
                         <Route exact path="/blog">
-                            <Nav page="blog" />
                             <BlogHome />
                         </Route>
                         <Route exact path="/createblog">
-                            <Nav page="createblog" />
                             <CreateBlog />
                         </Route>
                         <Route exact path="/leaderboards">
-                            <Nav page="leaderboards" />
                             <Leaderboard />
                         </Route>
                         <Route exact path="/rules">
-                            <Nav page="rules" />
                             <Rules />
                         </Route>
                         <Route exact path="/chat">
-                            <Nav page="chat" />
                             <Chat />
                         </Route>
                         <Route exact path="/map">
-                            <Nav page="map" />
                             <Map />
                         </Route>
-                        <Route exact path="/login">
-                            <Nav page="login" />
-                            {/* <Login/> */}
-                        </Route>
-                        <Route exact path="/viewblog/:id" component={ViewBlog}>
-                        </Route>
+                        <Route path="/viewblog/:id" component={ViewBlog}/>
                         <Route path="*">
-                            <Nav />
                             <PageNotFound />
                         </Route>
                     </Switch>

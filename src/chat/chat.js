@@ -58,7 +58,8 @@ export default class Chat extends React.Component {
 		// always scroll to bottom of chat box
 		if (document.readyState === "complete") {
 			let scrollBox = document.getElementById("chat-box");
-			scrollBox.scrollTop = scrollBox.scrollHeight - scrollBox.clientHeight;
+			if (scrollBox)
+				scrollBox.scrollTop = scrollBox.scrollHeight - scrollBox.clientHeight;
 		}
 
 		return (
