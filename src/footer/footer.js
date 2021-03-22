@@ -28,7 +28,7 @@ function Footer() {
                     <div className="footer-misc footer-links pure-u-1-3">
                         <h6>Quick Links</h6>
                         <ul className="footer-links">
-                            <li><a href="/about">About Us</a></li>
+                            <li><a href="//status.minecrossing.xyz" target="_blank">Status</a></li>
                             <li><a href="mailto:contact@minecrossing.xyz">Contact Us</a></li>
                             <li><a href="https://docs.google.com/document/d/e/2PACX-1vT-R4zo-9gcR_WBf4RZD887ox4-yqcGmq6E4aMh9dVi3kxeXYMjFEeP_hEOqNl0FfvEPzSRQ6EtXDxz/pub">Terms of Service</a></li>
                             <li><a href="https://docs.google.com/document/d/e/2PACX-1vQyWI-cNev18GUO8yf7sIhAl6pe8w829u7QenpE8vF_0-omEek1KSXXnQavBCnbmjrqrzOVCTGy5cCK/pub">Privacy Policy</a></li>
