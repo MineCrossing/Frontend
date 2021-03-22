@@ -1,16 +1,6 @@
 table, th, td {
     text-align: center;
     font-size: 1.1rem;
-  }
-
-  .leaderboard-header {
-    font-size: 2.5em;
-    font-weight: 800;
-    margin: 0 auto;
-    font-family: "RocknRoll One", sans-serif;
-    color: #0ed862;
-    padding-top: 10px;
-    padding-bottom: 20px;
 }
 
 table {
@@ -35,14 +25,12 @@ table {
     background-color: whitesmoke;
     color: #000;
 
-
     text-align: center;
 }
 
 .table th,
 .table td {
     padding: 12px 15px;
-
 }
 
 .table tbody tr {
@@ -78,7 +66,7 @@ table {
     width: 10%;
 
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 .pageBtn:hover {
