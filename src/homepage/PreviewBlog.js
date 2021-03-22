@@ -1,5 +1,6 @@
 import './previewblog.css';
 import React from "react";
+import Button from "@material-ui/core/Button";
 
 const PreviewBlog = props => {
     return (
@@ -25,7 +26,7 @@ const PreviewBlog = props => {
             </div>
             <span className={"separator"}> </span>
             <p className={"preview-blog-preview"}>{props.blog.preview.replace(/[&\/\\#+()$~%:*<>{}]/g,'')} ...</p>
-            <a href="/">Read More</a>
+            <Button className={"read-more-button"} variant={"contained"} color={"primary"} href={"/"}>Read More</Button>
         </div>
     );
 };

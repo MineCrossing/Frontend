@@ -56,19 +56,8 @@
     color: rgba(0,0,0,0.6)
 }
 
-.preview-blog-container a {
-    padding: 0.5em;
-    border-radius: 5px;
-    color: #fff;
-    background-color: #0ed862;
-    transition: all 0.25s ease;
-    display: block;
-    width: 5em;
-    margin: 0 auto;
-}
-
-.preview-blog-container a:hover {
-    background-color: #0f9348;
+.read-more-button {
+    width: fit-content;
 }
 
 .preview-blog-preview {
