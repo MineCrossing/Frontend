@@ -9,7 +9,9 @@ export default class Chat extends React.Component {
 		this.state = {
 			typed: "",
 			data: []
-		}
+		};
+
+		let mounted = false;
 
 		this.updateText = this.updateText.bind(this);
 		this.sendMessage = this.sendMessage.bind(this);
@@ -90,12 +92,14 @@ export default class Chat extends React.Component {
 
 	componentDidMount() {
 		let url = "https://api.minecrossing.xyz/chat";
+		this.mounted = true;
 
 		setInterval(() => {
 			fetch(url)
 				.then((response) => response.json())
 				.then((data) => {
-					this.setState({ data: data })
+					if (this.mounted)
+						this.setState({ data: data })
 				})
 				.catch((err) => {
 					console.log("something went wrong ", err)
@@ -104,6 +108,7 @@ export default class Chat extends React.Component {
 	}
 
 	componentWillUnmount() {
+		this.mounted = false;
 		clearInterval(this.interval);
 	}
 

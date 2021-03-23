@@ -4,6 +4,7 @@ import TextField from "@material-ui/core/TextField";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Button from "@material-ui/core/Button";
 import Endpoints from "../utils/Endpoints";
+import LoginRequired from "../shared/LoginRequired";
 
 //region Sample MD
 const markdown = () =>
@@ -82,14 +83,12 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function CreateBlog() {
+export default function CreateBlog(props) {
     const [content, setContent] = useState(markdown);
     const [title, setTitle] = useState("");
     const [subtitle, setSubtitle] = useState("");
     const [preview, setPreview] = useState(false);
     const classes = useStyles();
-    // For testing purposes only
-    const authToken = "%7B%22token%22%3A%20%228ea7b22657372b7ff79d2b33060b636354cde92be90227693da693cb3d1983541956a781f2726d78%22%2C%22userId%22%3A%222%22%7D";
 
     const createBlog = () => {
         fetch(Endpoints.BLOG_POSTS_CREATE, {
@@ -97,11 +96,14 @@ export default function CreateBlog() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({title, subtitle, content, userID: JSON.parse(decodeURIComponent(authToken)).userId})
+            body: JSON.stringify({title, subtitle, content, userID: props.auth?.userID})
         })
             .then( (response) => console.log(response))
             .catch ((err) => {console.log("something went wrong ", err)});
     };
+
+    if (!props.auth?.admin ?? false)
+        return <LoginRequired/>;
 
     return (
         <main className={classes.root}>

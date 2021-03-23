@@ -1,19 +1,25 @@
 import React, {useEffect, useState} from 'react';
 import './homepage.css';
 import DiscoverCard from "./DiscoverCard";
-import PreviewBlogsList from "./PreviewBlogsList";
+import PreviewBlogsList from "../shared/PreviewBlogsList";
 import Endpoints from "../utils/Endpoints";
 
 function Homepage() {
     const [blogs, setBlogs] = useState([]);
 
     useEffect(() => {
-            fetch(Endpoints.BLOG_POSTS_PREVIEW)
-                .then( (response) => response.json() )
-                .then( (data) => setBlogs(data))
-                .catch ((err) => {console.log("something went wrong ", err)});
-        }
-    );
+        let isMounted = true;
+
+        fetch(Endpoints.BLOG_POSTS_PREVIEW)
+            .then( (response) => response.json() )
+            .then( (data) => {
+                if (isMounted)
+                    setBlogs(data)
+            })
+            .catch ((err) => {console.log("something went wrong ", err)});
+
+        return () => isMounted = false;
+    });
 
     return (
         <main id="homepage">

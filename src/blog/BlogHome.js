@@ -1,6 +1,6 @@
 import './bloghome.css';
 import React, {useEffect, useState} from 'react';
-import PreviewBlogsList from "../homepage/PreviewBlogsList";
+import PreviewBlogsList from "../shared/PreviewBlogsList";
 import BlogFilterPicker from "./BlogFilterPicker";
 import Endpoints from "../utils/Endpoints";
 import Button from "@material-ui/core/Button";
@@ -24,19 +24,25 @@ const BlogHome = props => {
     const handleYearChange = (year) => {
         setYear(parseInt(year));
         const monthOptions = getMonthOptions(year);
-        console.log([year, month, monthOptions]);
         if (monthOptions.length > 0 && !monthOptions.includes(monthStringFromInt(month)))
             setMonth(monthIntFromString(monthOptions[0]))
     };
 
     useEffect(() => {
-            fetch(Endpoints.BLOG_POSTS_PREVIEW_ALL)
-                .then( (response) => response.json() )
-                .then( (data) => setBlogs(data))
-                .catch ((err) => {console.log("something went wrong ", err)});
-        }, []
-    );
+        let isMounted = true;
 
+        fetch(Endpoints.BLOG_POSTS_PREVIEW_ALL)
+            .then( (response) => response.json() )
+            .then( (data) => {
+                if (isMounted)
+                    setBlogs(data);
+            })
+            .catch ((err) => {console.log("something went wrong ", err)});
+
+        return () => isMounted = false;
+    }, []);
+
+    const createBlogButton = props.auth?.admin ? <Button variant={"contained"} color={"primary"} href={"/createblog"}>Create New</Button> : "";
     return (
         <main id={"blog-home"}>
             <div className={"blog-header-container"}>
@@ -61,7 +67,7 @@ const BlogHome = props => {
                 <section className={"blog-home-blog-container"}>
                     <div className={"blog-subheader-container"}>
                         <h2 className={"blog-subheader"}>{`Blogs from ${monthStringFromInt(month)}, ${year}`}</h2>
-                        <Button variant={"contained"} color={"primary"} href={"/createblog"}>Create New</Button>
+                        {createBlogButton}
                     </div>
                     <span className={"separator"}> </span>
                     <PreviewBlogsList blogs={blogs?.filter(b => getBlogDate(b?.date).getMonth() === month && getBlogDate(b?.date).getFullYear() === year)}/>

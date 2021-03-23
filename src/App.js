@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import './App.css';
 import Nav from "./navbar/navbar.js";
 import Homepage from './homepage/homepage.js';
@@ -8,12 +8,13 @@ import Map from './map/map.js';
 import Leaderboard from './leaderboard/leaderboard.js';
 import Rules from './rules/rules.js';
 import Chat from './chat/chat.js';
-import PageNotFound from './PageNotFound.js';
+import PageNotFound from './shared/PageNotFound.js';
 import BlogHome from "./blog/BlogHome";
 import CreateBlog from "./blog/CreateBlog";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {createMuiTheme, MuiThemeProvider} from "@material-ui/core";
 import ViewBlog from "./blog/ViewBlog";
+import Endpoints from "./utils/Endpoints";
 
 const theme = createMuiTheme({
     palette: {
@@ -33,7 +34,32 @@ const theme = createMuiTheme({
     spacing: v => `${v}em`
 });
 
+// For testing purposes only
+const authToken = "%7B%22token%22%3A%20%22766d66492834444475fba2a5b8260a222f14f2b85dec04775efa73c3cdf167385296ca8fc3a2aec3%22%2C%22userId%22%3A%221%22%7D";
+
 function App() {
+    const [auth, setAuth] = useState({loggedIn: false, admin: false, userID: 0});
+
+    useEffect(() => {
+        let token = "";
+        try {
+            token = JSON.stringify(JSON.parse(decodeURIComponent(authToken)));
+        } catch (e) {}
+
+        fetch(Endpoints.CHECKAUTH, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: token}
+        )
+            .then( (response) => response.json())
+            .then((data) => {
+                setAuth(data)
+            })
+            .catch ((err) => {console.log("something went wrong ", err)});
+    }, []);
+
 	return (
         <Router basename="/">
             <div className="App">
@@ -45,10 +71,10 @@ function App() {
                             <Homepage />
                         </Route>
                         <Route exact path="/blog">
-                            <BlogHome />
+                            <BlogHome auth={auth}/>
                         </Route>
                         <Route exact path="/createblog">
-                            <CreateBlog />
+                            <CreateBlog auth={auth}/>
                         </Route>
                         <Route exact path="/leaderboards">
                             <Leaderboard />

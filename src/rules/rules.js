@@ -3,12 +3,12 @@ import "../homepage/homepage.css";
 import "./rules.css";
 
 
-		function Rules(){
+function Rules(){
 	return (
 		<div id="rules">
 			<div id="content" className="pure-u-3-5">
 
-				<h1 class="rules-header">Rules and Policies!</h1>
+				<h1 className="rules-header">Rules and Policies!</h1>
 
 				<p id="welcome-paragraph">
 					Welcome to the rules and policies page, this page has been made to make sure that all of our users can enjoy their time in MineCrossing and that it is fair for everyone. Therefore we have put the rules in place for each member of our growing community to follow, if you are to be caught breaking the rules this can lead to being banned.

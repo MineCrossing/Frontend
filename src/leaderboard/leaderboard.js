@@ -38,9 +38,10 @@ export default class Leaderboard extends React.Component {
         players = players.slice(((this.state.pageSize * this.state.page) - this.state.pageSize), (this.state.pageSize * this.state.page));
 
         let table = [];
+        let key = 0;
         for (const data of players) {
             table.push(
-                <tr>
+                <tr key={key}>
                     <td>{wholePlayers.indexOf(data) + 1}</td>
                     <td>{data.name}</td>
                     <td>{data.level}</td>
@@ -51,6 +52,7 @@ export default class Leaderboard extends React.Component {
                     <td>{data.quests}</td>
                 </tr>
             );
+            key++;
         }
 
         return (
