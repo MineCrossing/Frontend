@@ -1,41 +1,62 @@
-import React from 'react';
-import Blogpost from '../blogpost.js';
+import React, {useEffect, useState} from 'react';
 import './homepage.css';
+import DiscoverCard from "./DiscoverCard";
+import PreviewBlogsList from "../shared/PreviewBlogsList";
+import Endpoints from "../utils/Endpoints";
 
 function Homepage() {
+    const [blogs, setBlogs] = useState([]);
+
+    useEffect(() => {
+        let isMounted = true;
+
+        fetch(Endpoints.BLOG_POSTS_PREVIEW)
+            .then( (response) => response.json() )
+            .then( (data) => {
+                if (isMounted)
+                    setBlogs(data)
+            })
+            .catch ((err) => {console.log("something went wrong ", err)});
+
+        return () => isMounted = false;
+    }, []);
+
     return (
-        <div id="homepage">
-            <div id="content" className="pure-u-3-5">
-                <h1>Welcome to MineCrossing!</h1>
-                <p id="welcome-paragraph">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-
-                <hr />
-
-                <Blogpost 
-                    name="Wow a cool blog post!" 
-                    uuid="c3f82c10-348e-4ab5-b2a0-d9a4f6c67602" 
-                    author="TheMGRF"
-                    time="Thursday at 2:22PM"
-                    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                />
-                <Blogpost 
-                    name="Wow another older cool blog post!" 
-                    uuid="f025c1c7-f55a-4ea0-b8d9-3f47d17dfe0f" 
-                    author="JamieCee" 
-                    time="21/02/2021"
-                    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                />
-                <Blogpost 
-                    name="An even older blog post!" 
-                    uuid="af36f704-c11d-4402-9e91-413875e768db" 
-                    author="EthanCopeland"
-                    time="16/02/2021"
-                    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                />
-            </div>
-        </div>
+        <main id="homepage">
+            <section id={"discover-container"}>
+                    <h1 className={"homepage-header"}>Discover MineCrossing</h1>
+                    <span className={"separator"}> </span>
+                    <p className={"discover-intro"}>
+                        MineCrossing is home to one of the fastest growing Minecraft servers of 2021 with thousands of unique daily players. Become part of the community
+                        and discover the features that MineCrossing has to offer
+                    </p>
+                    <div className={"discover-card-flex"}>
+                        <DiscoverCard
+                            title={"store"}
+                            link={"https://store.minecrossing.xyz"}
+                            icon={"fas fa-shopping-cart"}
+                            text={"Unlock cosmetics, power-ups, ranks and more"}
+                        />
+                        <DiscoverCard
+                            title={"chat"}
+                            link={"/chat"}
+                            icon={"fas fa-comments"}
+                            text={"Live, instant, two way chat from your browser to the server"}
+                        />
+                        <DiscoverCard
+                            title={"leaderboards"}
+                            link={"/leaderboards"}
+                            icon={"fas fa-chart-bar"}
+                            text={"Compete against friends for leaderboard rankings"}
+                        />
+                </div>
+            </section>
+            <section id={"latest-news"}>
+                <h2 className={"homepage-header"}>Latest News</h2>
+                <span className={"separator"}> </span>
+                <PreviewBlogsList blogs={blogs}/>
+            </section>
+        </main>
     );
 }
 

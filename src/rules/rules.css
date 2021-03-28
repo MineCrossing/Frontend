@@ -1,11 +1,10 @@
 #rules-nav{
     list-style-type: none;
     text-align: center;
-    
+
     margin: 0;
     padding: 0;
     overflow: hidden;
-
 }
 
 .rules-header {
@@ -24,9 +23,7 @@ li {
 
 li a {
     color: #666;
-
-
-    font-weight: 300px;
+    font-weight: 300;
 }
 
 a:link {
@@ -36,7 +33,6 @@ a:link {
 a:hover {
     color: #0FE369;
 }
-
 
 dd{
     display: block;

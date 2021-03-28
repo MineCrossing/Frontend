@@ -1,0 +1,42 @@
+.filter-picker-container  {
+    text-align: left;
+}
+
+.filter-picker-header {
+    text-align: left;
+    font-size: 1.3em;
+    margin: 0 0 1em 0;
+    color: #2c2c2c;
+}
+
+.filter-picker-container ul  {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0 0 1em 0;
+}
+
+.filter-picker-container li  {
+    display: block;
+    padding: 1em 0.5em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 5px;
+}
+
+.filter-picker-container > ul > .selected  {
+    background-color: #0ed862;
+    color: #fff;
+}
+
+.filter-picker-container > ul > .selected:hover  {
+    background-color: #0ed862;
+    opacity: 1;
+    color: #fff;
+}
+
+.filter-picker-container li:hover  {
+    background-color: #0ed862;
+    opacity: 0.75;
+    color: #fff;
+}

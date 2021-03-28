@@ -1,0 +1,67 @@
+.preview-blog-container {
+    padding: 2em;
+    margin-bottom: 4em;
+}
+
+.preview-blog-container .separator {
+    margin: 1em auto;
+}
+
+.preview-blog-title-container {
+    width: 70%;
+    margin-right: auto;
+}
+
+.preview-blog-container h2 {
+    font-size: 2em;
+    text-align: left;
+    font-weight: 500;
+    color: #0ed862;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.preview-blog-container > .separator {
+    margin-top: 0.5em;
+}
+
+.preview-blog-subtitle {
+    text-align: left;
+    font-size: 1em;
+    color: rgba(0,0,0,0.8) !important;
+    margin: 0.1em 0;
+}
+
+.preview-blog-container-flex {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
+
+.preview-blog-container-flex > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.preview-blog-soft-text {
+    padding: 0 0.2em;
+    color: rgba(0,0,0,0.7);
+    margin: 0 0 0.5em 0;
+    font-size: 0.9em;
+    text-align: left;
+}
+
+.preview-blog-soft-text > i {
+    padding-right: 0.5em;
+    color: rgba(0,0,0,0.6)
+}
+
+.read-more-button {
+    width: fit-content;
+}
+
+.preview-blog-preview {
+    text-align: justify;
+}
+
+
