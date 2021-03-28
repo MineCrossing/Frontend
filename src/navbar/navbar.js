@@ -15,7 +15,7 @@ export default class Navbar extends React.Component {
                     <li><NavLink activeClassName={"active"} to="/chat"><i className="fas fa-comments"> </i> Chat</NavLink></li>
                     <li><NavLink activeClassName={"active"} to="/map"><i className="fas fa-map-marked-alt"> </i> World Map</NavLink></li>
                     <li><a id="store" href="https://store.minecrossing.xyz"><i className="fas fa-shopping-cart"> </i> Store</a></li>
-                    <li><NavLink activeClassName={"active"} to="https://store.minecrossing.xyz/login"><i className="fas fa-sign-in-alt"> </i> Login</NavLink></li>
+                    <li><a href="https://store.minecrossing.xyz/login"><i className="fas fa-sign-in-alt"> </i> Login</a></li>
                 </ul>
             </div>
         )
