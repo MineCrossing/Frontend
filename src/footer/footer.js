@@ -9,7 +9,7 @@ function Footer() {
                     <div className="footer-about pure-u-1-3">
                         <h6>About</h6>
                         <p className="text-justify">
-                            Welcome to <b>MineCrossing</b> a revolutinary new server featuring many
+                            Welcome to <b>MineCrossing</b> a revolutionary new server featuring many
                             buzz words and business sounding innovative phrasing to make it sound
                             better than it actually is.
                         </p>
