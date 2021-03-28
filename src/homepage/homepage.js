@@ -19,7 +19,7 @@ function Homepage() {
             .catch ((err) => {console.log("something went wrong ", err)});
 
         return () => isMounted = false;
-    });
+    }, []);
 
     return (
         <main id="homepage">
