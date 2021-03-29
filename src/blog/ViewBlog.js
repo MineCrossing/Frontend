@@ -3,6 +3,7 @@ import MDEditor from '@uiw/react-md-editor';
 import Endpoints from "../utils/Endpoints";
 import {makeStyles} from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
+import BlogComments from "./BlogComments";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -64,11 +65,11 @@ function ViewBlog(props) {
             <Paper className={classes.paper} elevation={2}>
                 <MDEditor.Markdown className={classes.mde} source={data?.content} />
             </Paper>
-            <span className={"separator"}> </span>
-            <Paper className={classes.paper} elevation={1}>
+            <div>
                 <h2>Comments</h2>
                 <span className={"separator"}> </span>
-            </Paper>
+                <BlogComments id={props.match.params.id}/>
+            </div>
         </main>
     );
 }
