@@ -28,7 +28,9 @@ const useStyles = makeStyles(theme => ({
         color: "rgba(0,0,0,0.6)"
     },
     message: {
-
+        "& img": {
+            maxWidth: "25em"
+        }
     }
 }));
 

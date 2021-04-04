@@ -34,8 +34,11 @@ const BlogHome = props => {
         fetch(Endpoints.BLOG_POSTS_PREVIEW_ALL)
             .then( (response) => response.json() )
             .then( (data) => {
-                if (isMounted)
-                    setBlogs(data);
+                if (isMounted) {
+                    Promise.resolve(setBlogs(data))
+                        .then(() => setYear(getBlogDate(data[0]?.date).getFullYear()))
+                        .then(() => setMonth(getBlogDate(data[0]?.date).getMonth()));
+                }
             })
             .catch ((err) => {console.log("something went wrong ", err)});
 

@@ -69,14 +69,19 @@ function BlogComments(props) {
         })
             .then( (response) => {
                 if (response)
-                    fetchComments(true)
+                    fetchComments(true);
+
+                setNewComment("");
             })
             .catch ((err) => {console.log("something went wrong ", err)});
     };
 
     return (
         <div>
-            {comments?.length > 0 ? comments.map((c, i) => <BlogComment key={i} comment={c}/>) :  <p className={classes.noComments}>No comments to display</p>}
+            {comments?.length > 0 ? comments
+                .sort((a, b) => a.createdDate - b.createdDate)
+                .map((c, i) => <BlogComment key={i} comment={c}/>)
+                :  <p className={classes.noComments}>No comments to display</p>}
             {addComment ?
                 <div className={classes.mdeContainer}>
                     <h3>Add Comment</h3>

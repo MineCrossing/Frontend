@@ -15,6 +15,7 @@ import React, {useEffect, useState} from "react";
 import {createMuiTheme, MuiThemeProvider} from "@material-ui/core";
 import ViewBlog from "./blog/ViewBlog";
 import Endpoints from "./utils/Endpoints";
+import Cookies from 'js-cookie';
 
 const theme = createMuiTheme({
     palette: {
@@ -34,29 +35,33 @@ const theme = createMuiTheme({
     spacing: v => `${v}em`
 });
 
-// For testing purposes only
-const authToken = "%7B%22token%22%3A%20%22766d66492834444475fba2a5b8260a222f14f2b85dec04775efa73c3cdf167385296ca8fc3a2aec3%22%2C%22userId%22%3A%221%22%7D";
-
 function App() {
-    const [auth, setAuth] = useState({loggedIn: false, admin: false, userID: 0});
+    const [auth, setAuth] = useState({loggedIn: true, admin: true, userID: 0});
+    //Cookies.set('loginAuth', "%7B%22token%22%3A%20%22a0ab66cc01fddd0d1d04e91706d21df3625e7d6d00fb37f131c3febbd9ffd50fb4b1ec8f9a17b4de%22%2C%22userId%22%3A%221%22%7D");
+    console.log(Cookies?.get());
 
     useEffect(() => {
-        let token = "";
+        let token = null;
         try {
-            token = JSON.stringify(JSON.parse(decodeURIComponent(authToken)));
+            token = JSON.stringify(JSON.parse(decodeURIComponent(Cookies.get('loginAuth'))));
         } catch (e) {}
 
-        fetch(Endpoints.CHECKAUTH, {
+        fetch(Endpoints.CHECK_AUTH, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
             body: token}
         )
-            .then( (response) => response.json())
-            .then((data) => {
-                setAuth(data)
+            .then( (response) => {
+                if (response.status !== 200){
+                    setAuth({loggedIn: false, admin: false, userID: 0});
+                    Cookies.remove("loginAuth");
+                    return;
+                }
+                return response.json()
             })
+            .then((data) => setAuth(data))
             .catch ((err) => {console.log("something went wrong ", err)});
     }, []);
 
