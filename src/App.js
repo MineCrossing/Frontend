@@ -39,6 +39,7 @@ function App() {
     const [auth, setAuth] = useState({loggedIn: true, admin: true, userID: 0});
     //Cookies.set('loginAuth', "%7B%22token%22%3A%20%22a0ab66cc01fddd0d1d04e91706d21df3625e7d6d00fb37f131c3febbd9ffd50fb4b1ec8f9a17b4de%22%2C%22userId%22%3A%221%22%7D");
     console.log(Cookies?.get());
+    console.log(Cookies?.get('loginAuth'));
 
     useEffect(() => {
         let token = null;
@@ -46,6 +47,7 @@ function App() {
             token = JSON.stringify(JSON.parse(decodeURIComponent(Cookies.get('loginAuth'))));
         } catch (e) {}
 
+        console.log(token);
         fetch(Endpoints.CHECK_AUTH, {
             method: "POST",
             headers: {
@@ -54,6 +56,7 @@ function App() {
             body: token}
         )
             .then( (response) => {
+                console.log(response);
                 if (response.status !== 200){
                     setAuth({loggedIn: false, admin: false, userID: 0});
                     Cookies.remove("loginAuth");
