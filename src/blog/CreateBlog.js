@@ -5,33 +5,8 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import Button from "@material-ui/core/Button";
 import Endpoints from "../utils/Endpoints";
 import LoginRequired from "../shared/LoginRequired";
-
-//region Sample MD
-const markdown = () =>
-    `# Header
-
-## Sub-header?
-
-### Sub-sub-header?
-
-#### Sub-sub-sub-header?
-
-##### Sub-sub-sub-sub-header?
-
-*Italics!*
-
-**Bold**
-
->Block Quote
-
-~~StrikeThrough~~
-
-\`code formatting\`
-
-[link](blog)
-
-![](https://i1.sndcdn.com/avatars-000307312417-a7mxgu-t500x500.jpg)`;
-//endregion
+import {Redirect, withRouter} from "react-router-dom";
+import Cookies from 'js-cookie';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -83,27 +58,54 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function CreateBlog(props) {
-    const [content, setContent] = useState(markdown);
-    const [title, setTitle] = useState("");
-    const [subtitle, setSubtitle] = useState("");
+function CreateBlog(props) {
+    const [content, setContent] = useState(props.content ?? props.location?.state?.content ?? "");
+    const [title, setTitle] = useState(props.title ?? props.location?.state?.title ?? "");
+    const [subtitle, setSubtitle] = useState(props.subtitle ?? props.location?.state?.subtitle ?? "");
     const [preview, setPreview] = useState(false);
+    const [created, setCreated] = useState(false);
+    const [authError, setAuthError] = useState(false);
     const classes = useStyles();
 
     const createBlog = () => {
+        let token = "";
+        try {
+            token = JSON.parse(decodeURIComponent(Cookies.get('loginAuth') ?? ""))?.token
+        } catch (e) {}
+
+        if (token === "") {
+            setAuthError(true);
+            return;
+        }
+
         fetch(Endpoints.BLOG_POSTS_CREATE, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({title, subtitle, content, userID: props.auth?.userID})
+            body: JSON.stringify({
+                title,
+                subtitle,
+                content,
+                userID: props.auth?.userID,
+                blogPostID: props.location?.state?.blogPostID ?? "",
+                token
+            })
         })
-            .then( (response) => console.log(response))
+            .then( (response) => {
+                if (response.status === 200)
+                    setCreated(true);
+                else
+                    setAuthError(true);
+            })
             .catch ((err) => {console.log("something went wrong ", err)});
     };
 
-    if (!props.auth?.admin ?? false)
+    if (!(props.auth?.admin ?? false) || authError)
         return <LoginRequired/>;
+
+    if (created)
+        return <Redirect to={"/blog"}/>;
 
     return (
         <main className={classes.root}>
@@ -136,3 +138,5 @@ export default function CreateBlog(props) {
         </main>
     );
 }
+
+export default withRouter(CreateBlog)

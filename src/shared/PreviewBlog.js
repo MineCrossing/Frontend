@@ -1,8 +1,26 @@
 import './previewblog.css';
-import React from "react";
+import React, {useState} from "react";
 import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
+import {makeStyles} from "@material-ui/core";
+import {Redirect} from "react-router-dom";
+
+const useStyles = makeStyles(theme => ({
+    buttonContainer: {
+        paddingTop: theme.spacing(1),
+    }
+}));
 
 const PreviewBlog = props => {
+    const classes = useStyles();
+    const [redirect, setRedirect] = useState(false);
+
+    if (redirect)
+        return <Redirect to={{
+            pathname: "/CreateBlog",
+            state: { content: props.blog.content, title: props.blog.title, subtitle: props.blog.subtitle, blogPostID: props.blog.blogPostID}
+        }}/>;
+
     return (
         <div className={"preview-blog-container card"}>
             <div className={"preview-blog-container-flex"}>
@@ -26,7 +44,14 @@ const PreviewBlog = props => {
             </div>
             <span className={"separator"}> </span>
             <p className={"preview-blog-preview"}>{props.blog.preview.replace(/[\/\\#()$~%*<>{}]/g,'')} ...</p>
-            <Button className={"read-more-button"} variant={"contained"} color={"primary"} href={`/viewblog/${props.blog.blogPostID}`}>Read More</Button>
+            <Grid className={classes.buttonContainer} container justify={"center"} alignItems={"center"}>
+                {props.showEdit ? <Grid item lg={2} md={4} sm={6}>
+                    <Button variant={"contained"} color={"secondary"} onClick={() => setRedirect(true)}>Edit</Button>
+                </Grid> : ""}
+                <Grid item lg={2} md={4} sm={6}>
+                    <Button className={"read-more-button"} variant={"contained"} color={"primary"} href={`/viewblog/${props.blog.blogPostID}`}>Read More</Button>
+                </Grid>
+            </Grid>
         </div>
     );
 };

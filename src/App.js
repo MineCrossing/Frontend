@@ -37,17 +37,13 @@ const theme = createMuiTheme({
 
 function App() {
     const [auth, setAuth] = useState({loggedIn: true, admin: true, userID: 0});
-    //Cookies.set('loginAuth', "%7B%22token%22%3A%20%22a0ab66cc01fddd0d1d04e91706d21df3625e7d6d00fb37f131c3febbd9ffd50fb4b1ec8f9a17b4de%22%2C%22userId%22%3A%221%22%7D");
-    console.log(Cookies?.get());
-    console.log(Cookies?.get('loginAuth', {secure: true}));
-
+    //Cookies.set('loginAuth', "%7B%22token%22%3A%20%2260f2c6e2655ef0f7390a2eb65fb9f62d4801bff1df4d962a2bfe06f512dc0dc1bbc1ca980f4a732c%22%2C%22userId%22%3A%224%22%7D");
     useEffect(() => {
         let token = null;
         try {
             token = JSON.stringify(JSON.parse(decodeURIComponent(Cookies.get('loginAuth'))));
         } catch (e) {}
 
-        console.log(token);
         fetch(Endpoints.CHECK_AUTH, {
             method: "POST",
             headers: {
@@ -56,7 +52,6 @@ function App() {
             body: token}
         )
             .then( (response) => {
-                console.log(response);
                 if (response.status !== 200){
                     setAuth({loggedIn: false, admin: false, userID: 0});
                     Cookies.remove("loginAuth");

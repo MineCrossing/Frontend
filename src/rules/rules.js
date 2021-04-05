@@ -11,7 +11,7 @@ function Rules(){
 				<h1 className="rules-header">Rules and Policies!</h1>
 
 				<p id="welcome-paragraph">
-					Welcome to the rules and policies page, this page has been made to make sure that all of our users can enjoy their time in MineCrossing and that it is fair for everyone. Therefore we have put the rules in place for each member of our growing community to follow, if you are to be caught breaking the rules this can lead to being banned.
+					Welcome to the rules and policies page, this page has been made to make sure that all of our users can enjoy their time in MineCrossing and that it is fair for everyone. Therefore we have put the rules in place for each member of our growing community to follow, if you are to be caught breaking the rules this can lead to being banned. <br /><br /> To search for any specific rules, please hold ctrl + f to open the browser search function to find what you need to. Thank you.
         		</p>
 
 				<p id="welcome-paragraph">

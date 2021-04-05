@@ -1,11 +1,45 @@
-import './bloghome.css';
 import React, {useEffect, useState} from 'react';
 import PreviewBlogsList from "../shared/PreviewBlogsList";
 import BlogFilterPicker from "./BlogFilterPicker";
 import Endpoints from "../utils/Endpoints";
 import Button from "@material-ui/core/Button";
+import {makeStyles} from "@material-ui/core";
+
+const useStyles = makeStyles(theme => ({
+    blogHome: {
+        minHeight: "100vh",
+        paddingTop: "2em"
+    },
+    blogHeaderContainer: {
+        width: "80%",
+        margin: "auto",
+    },
+    blogHomeContent: {
+        display: "flex",
+        width: "80%",
+        margin: "3em auto",
+    },
+    blogHomeFilterContainer: {
+        width: "15%",
+    },
+    blogHomeBlogContainer: {
+        width: "80%",
+        marginLeft: "auto",
+        marginBottom: "1em",
+    },
+    blogSubheaderContainer: {
+        display: "flex",
+    },
+    blogSubheader: {
+        textAlign: "left",
+        color: "#2c2c2c",
+        margin: "0 auto 0 0",
+        fontSize: "1.3em",
+    },
+}));
 
 const BlogHome = props => {
+    const classes = useStyles();
     const [year, setYear] = useState(new Date().getFullYear());
     const [month, setMonth] = useState(new Date().getMonth());
     const [blogs, setBlogs] = useState([]);
@@ -45,15 +79,15 @@ const BlogHome = props => {
         return () => isMounted = false;
     }, []);
 
-    const createBlogButton = props.auth?.admin ? <Button variant={"contained"} color={"primary"} href={"/createblog"}>Create New</Button> : "";
+    const createBlogButton = props.auth?.admin ? <Button variant={"contained"} color={"secondary"} href={"/createblog"}>Create New</Button> : "";
     return (
-        <main id={"blog-home"}>
-            <div className={"blog-header-container"}>
+        <main className={classes.blogHome}>
+            <div className={classes.blogHeaderContainer}>
                 <h1 className={"homepage-header"}>Developer Blogs</h1>
                 <span className={"separator"}> </span>
             </div>
-            <section className={"blog-home-content"}>
-                <section className={"blog-home-filter-container"}>
+            <section className={classes.blogHomeContent}>
+                <section className={classes.blogHomeFilterContainer}>
                     <BlogFilterPicker
                         title={"Year"}
                         selected={year}
@@ -67,13 +101,13 @@ const BlogHome = props => {
                         onClick={e => setMonth(monthIntFromString(e.target.innerText))}
                     />
                 </section>
-                <section className={"blog-home-blog-container"}>
-                    <div className={"blog-subheader-container"}>
-                        <h2 className={"blog-subheader"}>{`Blogs from ${monthStringFromInt(month)}, ${year}`}</h2>
+                <section className={classes.blogHomeBlogContainer}>
+                    <div className={classes.blogSubheaderContainer}>
+                        <h2 className={classes.blogSubheader}>{`Blogs from ${monthStringFromInt(month)}, ${year}`}</h2>
                         {createBlogButton}
                     </div>
                     <span className={"separator"}> </span>
-                    <PreviewBlogsList blogs={blogs?.filter(b => getBlogDate(b?.date).getMonth() === month && getBlogDate(b?.date).getFullYear() === year)}/>
+                    <PreviewBlogsList showEdit={props.auth?.admin ?? false} blogs={blogs?.filter(b => getBlogDate(b?.date).getMonth() === month && getBlogDate(b?.date).getFullYear() === year)}/>
                 </section>
             </section>
         </main>

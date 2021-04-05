@@ -5,7 +5,7 @@ import PreviewBlog from "./PreviewBlog";
 const PreviewBlogsList = props => {
     const content = props.blogs == null && !props.blogs?.isArray() ?
         <div>No Blogs to display</div> :
-        props.blogs.map((blog, i) => <PreviewBlog blog={blog} key={i}/>);
+        props.blogs.map((blog, i) => <PreviewBlog showEdit={props.showEdit ?? false} blog={blog} key={i}/>);
 
     return (
         content
