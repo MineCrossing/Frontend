@@ -27,24 +27,12 @@ export default class Leaderboard extends React.Component {
 	}
 
 	handleLastClick = () => {
-		this.setState({ page: this.state.page = 41 });
+		this.setState({ page: Math.floor(this.state.data.length/this.state.pageSize) });
 	}
 
-	handleSelect = (e) => {
-		this.setState({ page: 1, rating: e.target.value });
-	}
 
 	render() {
-		const wholePlayers = this.state.data;
-		wholePlayers.sort((a, b) => {
-			if (a.level > b.level) {
-			  return -1;
-			}
-			if (a.level < b.level) {
-			  return 1;
-			}
-			return 0;
-		});
+		const wholePlayers = this.state.data.sort((a, b) => b.level - a.level);
 		
 		let players = this.state.data;
 
