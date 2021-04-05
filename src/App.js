@@ -57,8 +57,8 @@ function App() {
                 if (response.status !== 200){
                     setAuth(defaultAuthState);
                     Cookies.remove("loginAuth");
-                    Cookies.remove("XSRF-TOKEN");
-                    Cookies.remove("storeminecrossingxyz_session");
+                    Cookies.set("storeminecrossingxyz_session", "", {expires: -1});
+                    Cookies.set("XSRF-TOKEN", "", {expires: -1});
                     return;
                 }
                 return response.json()
@@ -83,8 +83,8 @@ function App() {
             .then( (response) => {
                 setAuth(defaultAuthState);
                 Cookies.remove("loginAuth");
-                Cookies.remove("XSRF-TOKEN");
-                Cookies.remove("storeminecrossingxyz_session");
+                Cookies.set("storeminecrossingxyz_session", "", {expires: -1});
+                Cookies.set("XSRF-TOKEN", "", {expires: -1});
 
             })
             .catch ((err) => {console.log("something went wrong ", err)});

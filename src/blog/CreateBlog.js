@@ -98,8 +98,8 @@ function CreateBlog(props) {
                 else{
                     setAuthError(true);
                     Cookies.remove('loginAuth');
-                    Cookies.remove("XSRF-TOKEN");
-                    Cookies.remove("storeminecrossingxyz_session");
+                    Cookies.set("storeminecrossingxyz_session", "", {expires: -1});
+                    Cookies.set("XSRF-TOKEN", "", {expires: -1});
                 }
             })
             .catch ((err) => {console.log("something went wrong ", err)});
