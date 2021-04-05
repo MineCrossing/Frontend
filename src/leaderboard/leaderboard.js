@@ -9,25 +9,43 @@ export default class Leaderboard extends React.Component {
 
 		this.state = {
 			page: 1,
-			pageSize: 9,
+			pageSize: 10,
 			data: []
 		}
 	}
 
 	handlePreviousClick = () => {
-		this.setState({ page: this.state.page - 1 })
+		this.setState({ page: this.state.page - 1 });
 	}
 
 	handleNextClick = () => {
-		this.setState({ page: this.state.page + 1 })
+		this.setState({ page: this.state.page + 1 });
+	}
+
+	handleFirstClick = () => {
+		this.setState({ page: this.state.page = 1 });
+	}
+
+	handleLastClick = () => {
+		this.setState({ page: this.state.page = 41 });
 	}
 
 	handleSelect = (e) => {
-		this.setState({ page: 1, rating: e.target.value })
+		this.setState({ page: 1, rating: e.target.value });
 	}
 
 	render() {
 		const wholePlayers = this.state.data;
+		wholePlayers.sort((a, b) => {
+			if (a.level > b.level) {
+			  return -1;
+			}
+			if (a.level < b.level) {
+			  return 1;
+			}
+			return 0;
+		});
+		
 		let players = this.state.data;
 
 		let noOfPages = Math.ceil(players.length / this.state.pageSize)
@@ -78,9 +96,11 @@ export default class Leaderboard extends React.Component {
 					</table>
 					<br />
 
+					<button className="pageBtn" onClick={this.handleFirstClick} disabled={disabledPrevious}>First</button>
 					<button className="pageBtn" onClick={this.handlePreviousClick} disabled={disabledPrevious}>Previous</button>
      					Page {this.state.page} of {noOfPages}
 					<button className="pageBtn" onClick={this.handleNextClick} disabled={disabledNext}>Next</button>
+					<button className="pageBtn" onClick={this.handleLastClick} disabled={disabledNext}>Last</button>
 				</div>
 			</div>
 		);
