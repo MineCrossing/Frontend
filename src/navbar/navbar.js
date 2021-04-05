@@ -1,23 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './navbar.css';
-import {NavLink, Redirect} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 
 const Navbar = (props) => {
-    const [loggedOut, setLoggedOut] = useState(false);
-    const handleLogout = () => {
-        setLoggedOut(true);
-        props.logout();
-    };
-
     const loginOptions = props?.auth?.loggedIn ?? false ?
-        <li><a onClick={handleLogout}><i className="fas fa-sign-in-alt"> </i> Logout</a></li> :
+        <li><a onClick={() => props.logout()}><i className="fas fa-sign-in-alt"> </i> Logout</a></li> :
         <li><a href="https://store.minecrossing.xyz/login"><i className="fas fa-sign-in-alt"> </i> Login</a></li>;
-
-    if (loggedOut) {
-        setLoggedOut(false);
-        return <Redirect to={"/blog"}/>;
-    }
 
     return (
         <div id="nav-box">
@@ -33,6 +22,6 @@ const Navbar = (props) => {
             </ul>
         </div>
     )
-}
+};
 
 export default Navbar;

@@ -95,8 +95,11 @@ function CreateBlog(props) {
             .then( (response) => {
                 if (response.status === 200)
                     setCreated(true);
-                else
+                else{
                     setAuthError(true);
+                    Cookies.remove('loginAuth');
+                    Cookies.remove("XSRF-TOKEN");
+                }
             })
             .catch ((err) => {console.log("something went wrong ", err)});
     };
