@@ -38,7 +38,7 @@ const theme = createMuiTheme({
 function App() {
     const defaultAuthState = {loggedIn: false, admin: false, userID: 0};
     const [auth, setAuth] = useState(defaultAuthState);
-    Cookies.set('loginAuth', "%7B%22token%22%3A%20%2260f2c6e2655ef0f7390a2eb65fb9f62d4801bff1df4d962a2bfe06f512dc0dc1bbc1ca980f4a732c%22%2C%22userId%22%3A%224%22%7D");
+    //Cookies.set('loginAuth', "%7B%22token%22%3A%20%2260f2c6e2655ef0f7390a2eb65fb9f62d4801bff1df4d962a2bfe06f512dc0dc1bbc1ca980f4a732c%22%2C%22userId%22%3A%224%22%7D");
 
     useEffect(() => {
         let token = null;
