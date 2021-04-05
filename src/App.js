@@ -36,7 +36,8 @@ const theme = createMuiTheme({
 });
 
 function App() {
-    const [auth, setAuth] = useState({loggedIn: true, admin: true, userID: 0});
+    const defaultAuthState = {loggedIn: false, admin: false, userID: 0};
+    const [auth, setAuth] = useState(defaultAuthState);
     //Cookies.set('loginAuth', "%7B%22token%22%3A%20%2260f2c6e2655ef0f7390a2eb65fb9f62d4801bff1df4d962a2bfe06f512dc0dc1bbc1ca980f4a732c%22%2C%22userId%22%3A%224%22%7D");
     useEffect(() => {
         let token = null;
@@ -53,7 +54,7 @@ function App() {
         )
             .then( (response) => {
                 if (response.status !== 200){
-                    setAuth({loggedIn: false, admin: false, userID: 0});
+                    setAuth(defaultAuthState);
                     Cookies.remove("loginAuth");
                     return;
                 }
@@ -63,12 +64,17 @@ function App() {
             .catch ((err) => {console.log("something went wrong ", err)});
     }, []);
 
+    const handleLogout = () => {
+        setAuth(defaultAuthState);
+        Cookies.remove("loginAuth");
+    };
+
 	return (
         <Router basename="/">
             <div className="App">
                 <MuiThemeProvider theme={theme}>
-                    <Header img="" />
-                    <Nav />
+                    <Header img=""/>
+                    <Nav auth={auth} logout={handleLogout}/>
                     <Switch>
                         <Route exact path="/">
                             <Homepage />

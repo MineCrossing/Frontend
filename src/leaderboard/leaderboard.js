@@ -10,7 +10,8 @@ export default class Leaderboard extends React.Component {
 		this.state = {
 			page: 1,
 			pageSize: 10,
-			data: []
+			data: [],
+			selectedSort: ""
 		}
 	}
 
@@ -30,10 +31,45 @@ export default class Leaderboard extends React.Component {
 		this.setState({ page: Math.floor(this.state.data.length/this.state.pageSize) });
 	}
 
+	sortData = (sortBy) => {
+		let data = this.state.data;
+		sortBy = sortBy.toLowerCase();
+
+		if (sortBy === this.state.selectedSort) {
+			this.setState({data: this.state.data.reverse()});
+			return;
+		}
+
+		switch (sortBy) {
+			case "name":
+				data = this.state.data.sort((a, b) => b.name - a.name);
+				break;
+			case "kills":
+				data = this.state.data.sort((a, b) => b.kills - a.kills);
+				break;
+			case "deaths":
+				data = this.state.data.sort((a, b) => b.deaths - a.deaths);
+				break;
+			case "wins":
+				data = this.state.data.sort((a, b) => b.wins - a.wins);
+				break;
+			case "losses":
+				data = this.state.data.sort((a, b) => b.losses - a.losses);
+				break;
+			case "quests":
+				data = this.state.data.sort((a, b) => b.quests - a.quests);
+				break;
+			default:
+				data = this.state.data.sort((a, b) => b.level - a.level);
+		}
+
+		this.setState({selectedSort: sortBy, data});
+	};
+
 
 	render() {
-		const wholePlayers = this.state.data.sort((a, b) => b.level - a.level);
-		
+		const wholePlayers = this.state.data;
+
 		let players = this.state.data;
 
 		let noOfPages = Math.floor(players.length / this.state.pageSize)
@@ -69,13 +105,13 @@ export default class Leaderboard extends React.Component {
 						<thead>
 							<tr>
 								<th>#</th>
-								<th>Name</th>
-								<th>Level</th>
-								<th>Kills</th>
-								<th>Deaths</th>
-								<th>Wins</th>
-								<th>Losses</th>
-								<th>Quests</th>
+								<th onClick={() => this.sortData("Name")}>Name</th>
+								<th onClick={() => this.sortData("Level")}>Level</th>
+								<th onClick={() => this.sortData("Kills")}>Kills</th>
+								<th onClick={() => this.sortData("Deaths")}>Deaths</th>
+								<th onClick={() => this.sortData("Wins")}>Wins</th>
+								<th onClick={() => this.sortData("Losses")}>Losses</th>
+								<th onClick={() => this.sortData("Quests")}>Quests</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -101,7 +137,7 @@ export default class Leaderboard extends React.Component {
 			.then((response) => response.json())
 			.then((data) => {
 				console.log(data);
-				this.setState({ data: data })
+				this.setState({ selectedSort: "level", data: data.sort((a, b) => b.level - a.level)})
 			})
 			.catch((err) => {
 				console.log("something went wrong ", err)
