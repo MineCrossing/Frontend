@@ -58,6 +58,7 @@ function App() {
                     setAuth(defaultAuthState);
                     Cookies.remove("loginAuth");
                     Cookies.remove("XSRF-TOKEN");
+                    Cookies.remove("storeminecrossingxyz_session");
                     return;
                 }
                 return response.json()
@@ -83,6 +84,8 @@ function App() {
                 setAuth(defaultAuthState);
                 Cookies.remove("loginAuth");
                 Cookies.remove("XSRF-TOKEN");
+                Cookies.remove("storeminecrossingxyz_session");
+
             })
             .catch ((err) => {console.log("something went wrong ", err)});
     };
