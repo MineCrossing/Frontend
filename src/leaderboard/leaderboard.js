@@ -36,7 +36,7 @@ export default class Leaderboard extends React.Component {
 		
 		let players = this.state.data;
 
-		let noOfPages = Math.ceil(players.length / this.state.pageSize)
+		let noOfPages = Math.floor(players.length / this.state.pageSize)
 		if (noOfPages === 0) { noOfPages = 1 }
 		let disabledPrevious = (this.state.page <= 1)
 		let disabledNext = (this.state.page >= noOfPages)
