@@ -12,7 +12,7 @@
 }
 
 #navbar {
-    width: 45%;
+    width: fit-content;
 
     display: inline-block;
     list-style-type: none;
@@ -31,6 +31,7 @@
 
 #navbar li a {
     display: block;
+    cursor: pointer;
 
     color: #666;
     text-decoration: none;

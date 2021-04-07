@@ -56,7 +56,7 @@ function App() {
             .then( (response) => {
                 if (response.status !== 200){
                     setAuth(defaultAuthState);
-                    Cookies.remove("loginAuth");
+                    Cookies.set("loginAuth", "", {expires: -1, domain: ".minecrossing.xyz"});
                     Cookies.set("storeminecrossingxyz_session", "", {expires: -1, domain: ".minecrossing.xyz"});
                     Cookies.set("XSRF-TOKEN", "", {expires: -1, domain: ".minecrossing.xyz"});
                     return;
@@ -82,7 +82,7 @@ function App() {
         })
             .then( (response) => {
                 setAuth(defaultAuthState);
-                Cookies.remove("loginAuth");
+                Cookies.set("loginAuth", "", {expires: -1, domain: ".minecrossing.xyz"});
                 Cookies.set("storeminecrossingxyz_session", "", {expires: -1, domain: ".minecrossing.xyz"});
                 Cookies.set("XSRF-TOKEN", "", {expires: -1, domain: ".minecrossing.xyz"});
 

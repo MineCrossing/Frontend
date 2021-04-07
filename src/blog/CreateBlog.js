@@ -97,7 +97,7 @@ function CreateBlog(props) {
                     setCreated(true);
                 else{
                     setAuthError(true);
-                    Cookies.remove('loginAuth');
+                    Cookies.set("loginAuth", "", {expires: -1, domain: ".minecrossing.xyz"});
                     Cookies.set("storeminecrossingxyz_session", "", {expires: -1, domain: ".minecrossing.xyz"});
                     Cookies.set("XSRF-TOKEN", "", {expires: -1, domain: ".minecrossing.xyz"});
                 }
