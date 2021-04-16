@@ -6,6 +6,8 @@ import Endpoints from "../utils/Endpoints";
 
 function Homepage() {
     const [blogs, setBlogs] = useState([]);
+    const [totalPlayers, setTotalPlayers] = useState(750 + Math.random() * 500);
+
 
     useEffect(() => {
         let isMounted = true;
@@ -18,13 +20,24 @@ function Homepage() {
             })
             .catch ((err) => {console.log("something went wrong ", err)});
 
+        setTimeout(() => setTotalPlayers(1000 + Math.random() * 120), 10000);
         return () => isMounted = false;
     }, []);
 
     return (
         <main id="homepage">
             <section id={"discover-container"}>
-                    <h1 className={"homepage-header"}>Discover MineCrossing</h1>
+                    <div className={"homepage-header-container"}>
+                        <h1 className={"homepage-header"}>Discover MineCrossing</h1>
+                        <span className={"header-info"}>
+                            <i className={"fas fa-user"}> </i>
+                            <strong>{totalPlayers.toFixed(0)}</strong> Players Online
+                        </span>
+                        <span className={"header-info"}>
+                            <i className={"fas fa-map-marker-alt"}> </i>
+                            Server IP: <strong>192.168.0.1</strong>
+                        </span>
+                    </div>
                     <span className={"separator"}> </span>
                     <p className={"discover-intro"}>
                         MineCrossing is home to one of the fastest growing Minecraft servers of 2021 with thousands of unique daily players. Become part of the community

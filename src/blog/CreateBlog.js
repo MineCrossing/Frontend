@@ -6,7 +6,7 @@ import Button from "@material-ui/core/Button";
 import Endpoints from "../utils/Endpoints";
 import LoginRequired from "../shared/LoginRequired";
 import {Redirect, withRouter} from "react-router-dom";
-import Cookies from 'js-cookie';
+import AuthUtils from "../utils/AuthUtils";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -68,10 +68,7 @@ function CreateBlog(props) {
     const classes = useStyles();
 
     const createBlog = () => {
-        let token = "";
-        try {
-            token = JSON.parse(decodeURIComponent(Cookies.get('loginAuth') ?? ""))?.token
-        } catch (e) {}
+        let token = AuthUtils.getAuthToken();
 
         if (token === "") {
             setAuthError(true);
@@ -97,9 +94,7 @@ function CreateBlog(props) {
                     setCreated(true);
                 else{
                     setAuthError(true);
-                    Cookies.set("loginAuth", "", {expires: -1, domain: ".minecrossing.xyz"});
-                    Cookies.set("storeminecrossingxyz_session", "", {expires: -1, domain: ".minecrossing.xyz"});
-                    Cookies.set("XSRF-TOKEN", "", {expires: -1, domain: ".minecrossing.xyz"});
+                    AuthUtils.processLogout();
                 }
             })
             .catch ((err) => {console.log("something went wrong ", err)});

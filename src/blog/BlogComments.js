@@ -4,6 +4,7 @@ import BlogComment from "./BlogComment";
 import Button from "@material-ui/core/Button";
 import {makeStyles} from "@material-ui/core";
 import MDEditor from "@uiw/react-md-editor";
+import AuthUtils from "../utils/AuthUtils";
 
 const useStyles = makeStyles(theme => ({
     noComments: {
@@ -65,7 +66,7 @@ function BlogComments(props) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({blogPostID: props.id, message: newComment, userID: 3})
+            body: JSON.stringify({blogPostID: props.id, message: newComment, userID: 3, tokenID: AuthUtils.getAuthToken()})
         })
             .then( (response) => {
                 if (response)

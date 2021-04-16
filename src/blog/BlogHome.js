@@ -13,19 +13,35 @@ const useStyles = makeStyles(theme => ({
     blogHeaderContainer: {
         width: "80%",
         margin: "auto",
+        [theme.breakpoints.down("xs")]: {
+            width: "98%"
+        }
     },
     blogHomeContent: {
         display: "flex",
-        width: "80%",
         margin: "3em auto",
+        width: "80%",
+        [theme.breakpoints.down("sm")]: {
+            flexDirection: "column",
+        },
+        [theme.breakpoints.down("xs")]: {
+            width: "98%",
+        },
     },
     blogHomeFilterContainer: {
         width: "15%",
+        [theme.breakpoints.down("sm")]: {
+            width: "80%",
+            margin: theme.spacing(0, "auto", 1, "auto")
+        },
     },
     blogHomeBlogContainer: {
         width: "80%",
         marginLeft: "auto",
         marginBottom: "1em",
+        [theme.breakpoints.down("sm")]: {
+            margin: "auto"
+        },
     },
     blogSubheaderContainer: {
         display: "flex",
@@ -107,7 +123,7 @@ const BlogHome = props => {
                         {createBlogButton}
                     </div>
                     <span className={"separator"}> </span>
-                    <PreviewBlogsList showEdit={props.auth?.admin ?? false} blogs={blogs?.filter(b => getBlogDate(b?.date).getMonth() === month && getBlogDate(b?.date).getFullYear() === year)}/>
+                    <PreviewBlogsList remove={(id) => setBlogs(blogs.filter(b => b.blogPostID !== id))} admin={props.auth?.admin ?? false} blogs={blogs?.filter(b => getBlogDate(b?.date).getMonth() === month && getBlogDate(b?.date).getFullYear() === year)}/>
                 </section>
             </section>
         </main>

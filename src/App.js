@@ -16,6 +16,7 @@ import {createMuiTheme, MuiThemeProvider} from "@material-ui/core";
 import ViewBlog from "./blog/ViewBlog";
 import Endpoints from "./utils/Endpoints";
 import Cookies from 'js-cookie';
+import AuthUtils from "./utils/AuthUtils";
 
 const theme = createMuiTheme({
     palette: {
@@ -38,13 +39,9 @@ const theme = createMuiTheme({
 function App() {
     const defaultAuthState = {loggedIn: false, admin: false, userID: 0};
     const [auth, setAuth] = useState(defaultAuthState);
-    //Cookies.set('loginAuth', "%7B%22token%22%3A%20%2260f2c6e2655ef0f7390a2eb65fb9f62d4801bff1df4d962a2bfe06f512dc0dc1bbc1ca980f4a732c%22%2C%22userId%22%3A%224%22%7D");
 
     useEffect(() => {
-        let token = null;
-        try {
-            token = JSON.stringify(JSON.parse(decodeURIComponent(Cookies.get('loginAuth'))));
-        } catch (e) {}
+        let token = AuthUtils.getAuthToken();
 
         fetch(Endpoints.CHECK_AUTH, {
             method: "POST",
@@ -56,9 +53,7 @@ function App() {
             .then( (response) => {
                 if (response.status !== 200){
                     setAuth(defaultAuthState);
-                    Cookies.set("loginAuth", "", {expires: -1, domain: ".minecrossing.xyz"});
-                    Cookies.set("storeminecrossingxyz_session", "", {expires: -1, domain: ".minecrossing.xyz"});
-                    Cookies.set("XSRF-TOKEN", "", {expires: -1, domain: ".minecrossing.xyz"});
+                    AuthUtils.processLogout();
                     return;
                 }
                 return response.json()
@@ -82,10 +77,7 @@ function App() {
         })
             .then( (response) => {
                 setAuth(defaultAuthState);
-                Cookies.set("loginAuth", "", {expires: -1, domain: ".minecrossing.xyz"});
-                Cookies.set("storeminecrossingxyz_session", "", {expires: -1, domain: ".minecrossing.xyz"});
-                Cookies.set("XSRF-TOKEN", "", {expires: -1, domain: ".minecrossing.xyz"});
-
+                AuthUtils.processLogout();
             })
             .catch ((err) => {console.log("something went wrong ", err)});
     };
