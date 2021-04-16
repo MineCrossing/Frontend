@@ -41,7 +41,7 @@ function App() {
     const [auth, setAuth] = useState(defaultAuthState);
 
     useEffect(() => {
-        let token = AuthUtils.getAuthToken();
+        let token = JSON.stringify(AuthUtils.getAuthCookie());
 
         fetch(Endpoints.CHECK_AUTH, {
             method: "POST",
@@ -51,7 +51,6 @@ function App() {
             body: token}
         )
             .then( (response) => {
-                console.log(response);
                 if (response.status !== 200){
                     setAuth(defaultAuthState);
                     AuthUtils.processLogout();
