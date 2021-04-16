@@ -41,7 +41,7 @@ function App() {
     const [auth, setAuth] = useState(defaultAuthState);
 
     useEffect(() => {
-        let token = JSON.stringify(AuthUtils.getAuthCookie());
+        let token = AuthUtils.getAuthCookie();
 
         fetch(Endpoints.CHECK_AUTH, {
             method: "POST",
