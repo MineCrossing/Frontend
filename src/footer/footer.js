@@ -39,7 +39,7 @@ function Footer() {
                 <hr />
 
                 <div className="footer-copyright pure-u-2-5">
-                    <p className="copyright-text">Copyright &copy; 2021 All Rights Reserved by <a href="#">MineCrossing</a></p>
+                    <p className="copyright-text">Copyright &copy; 2021 All Rights Reserved by <a href="//minecrossing.xyz">MineCrossing</a></p>
                 </div>
 
                 <div className="footer-social pure-u-3-5">
