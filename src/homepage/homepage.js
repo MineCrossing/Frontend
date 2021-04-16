@@ -8,7 +8,6 @@ function Homepage() {
     const [blogs, setBlogs] = useState([]);
     const [totalPlayers, setTotalPlayers] = useState(750 + Math.random() * 500);
 
-
     useEffect(() => {
         let isMounted = true;
 
@@ -27,18 +26,18 @@ function Homepage() {
     return (
         <main id="homepage">
             <section id={"discover-container"}>
-                    <div className={"homepage-header-container"}>
-                        <h1 className={"homepage-header"}>Discover MineCrossing</h1>
-                        <span className={"header-info"}>
-                            <i className={"fas fa-user"}> </i>
-                            <strong>{totalPlayers.toFixed(0)}</strong> Players Online
-                        </span>
-                        <span className={"header-info"}>
-                            <i className={"fas fa-map-marker-alt"}> </i>
-                            Server IP: <strong>192.168.0.1</strong>
-                        </span>
-                    </div>
+                    <h1 className={"homepage-header"}>Discover MineCrossing</h1>
                     <span className={"separator"}> </span>
+                    <div className={"header-info-container"}>
+                        <span className={"header-info"}>
+                                <i className={"fas fa-user"}> </i>
+                                <strong>{totalPlayers.toFixed(0)}</strong> Players Online
+                            </span>
+                        <span className={"header-info"}>
+                        <i className={"fas fa-map-marker-alt"}> </i>
+                        Server IP: <strong>192.168.0.1</strong>
+                    </span>
+                    </div>
                     <p className={"discover-intro"}>
                         MineCrossing is home to one of the fastest growing Minecraft servers of 2021 with thousands of unique daily players. Become part of the community
                         and discover the features that MineCrossing has to offer

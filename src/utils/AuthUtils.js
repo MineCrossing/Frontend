@@ -24,6 +24,7 @@ class AuthUtils {
     }
 
     static processLogout() {
+        console.log("logged out");
         Cookies.set("loginAuth", "", {expires: -1, domain: ".minecrossing.xyz"});
         Cookies.set("storeminecrossingxyz_session", "", {expires: -1, domain: ".minecrossing.xyz"});
         Cookies.set("XSRF-TOKEN", "", {expires: -1, domain: ".minecrossing.xyz"});

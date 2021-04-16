@@ -3,10 +3,6 @@
     background-color: #fcfcfc;
 }
 
-.homepage-header-container {
-    display: flex;
-}
-
 .homepage-header {
     font-size: 2.5em;
     font-weight: 800;
@@ -16,20 +12,23 @@
     color: #0ed862;
 }
 
+.header-info-container {
+    display: flex;
+    margin-top: -1em;
+    margin-bottom: 1em;
+    justify-content: flex-end;
+}
+
 .header-info {
     display: block;
-    margin-top: auto;
     margin-left: 1em;
-    font-size: 1.1em;
-    background-color: #d8550e;
-    color: #fff;
-    padding: 0.4em;
+    font-size: 1em;
     border-radius: 5px;
 }
 
 .header-info > i {
     margin-right: 0.5em;
-    transform: scale(0.95);
+    color: #d8550e;
 }
 
 #discover-container  {
