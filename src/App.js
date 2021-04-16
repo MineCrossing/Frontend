@@ -51,6 +51,7 @@ function App() {
             body: token}
         )
             .then( (response) => {
+                console.log(response);
                 if (response.status !== 200){
                     setAuth(defaultAuthState);
                     AuthUtils.processLogout();

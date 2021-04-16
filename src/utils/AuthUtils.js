@@ -2,11 +2,12 @@ import Cookies from "js-cookie";
 
 class AuthUtils {
     static getAuthToken() {
-        let token = "";
+        let token = " ";
         try {
             token = JSON.parse(this.getAuthCookie())?.token
         } catch (e) {}
 
+        console.log(token);
         return token;
     }
 
