@@ -99,15 +99,12 @@ const useStyles = makeStyles(theme => ({
 const PreviewBlog = props => {
     const classes = useStyles();
     const [redirect, setRedirect] = useState(false);
-    const [admin, setAdmin] = useState(props.auth?.admin ?? false);
 
     const deleteBlog = () => {
         let token = AuthUtils.getAuthToken();
 
-        if (token === "") {
-            setAdmin(false);
+        if (token === "")
             return;
-        }
 
         fetch(Endpoints.BLOG_POSTS_DELETE, {
             method: "POST",
@@ -171,7 +168,7 @@ const PreviewBlog = props => {
                 name={"content"}
             />
             <div className={classes.buttonContainer}>
-                    {admin && (props.auth?.admin ?? false) ? adminControls : ""}
+                    {(props.auth?.admin ?? false) ? adminControls : ""}
                     <Button variant={"contained"} color={"primary"} href={`/viewblog/${props.blog.blogPostID}`}>Read More</Button>
             </div>
         </div>
