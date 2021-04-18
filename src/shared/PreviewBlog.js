@@ -82,6 +82,7 @@ const useStyles = makeStyles(theme => ({
         boxShadow: "none",
         "& *": {
             overflow: "hidden",
+            padding: theme.spacing(0.2, 0)
         },
         "& svg": {
             display: "none"
