@@ -16,7 +16,8 @@ const useStyles = makeStyles((theme) => ({
         "& h2": {
             fontWeight: "500",
             fontSize: "1.2em",
-            margin: theme.spacing(0, "auto", 0, 0)
+            margin: theme.spacing(0, 0, 0, 0),
+            textAlign: "left"
         }
     },
     mde: {
@@ -33,10 +34,14 @@ const useStyles = makeStyles((theme) => ({
     contentHeaderFlex: {
         display: "flex",
         marginBottom: theme.spacing(0.5),
+        "& span" :{
+            margin: theme.spacing(0.18, 0, 0, 0.5),
+            color: theme.palette.error.main
+        },
         "& p": {
             fontSize: "0.9em",
             color: "rgba(0,0,0,0.7)",
-            margin: 0,
+            margin: "0 0 0 auto",
             "& a": {
                 textDecoration: "underline"
             }
@@ -65,6 +70,7 @@ function CreateBlog(props) {
     const [preview, setPreview] = useState(false);
     const [created, setCreated] = useState(false);
     const [authError, setAuthError] = useState(false);
+    const [validationError, setValidationError] = useState(false);
     const classes = useStyles();
 
     const createBlog = () => {
@@ -72,6 +78,11 @@ function CreateBlog(props) {
 
         if (token === "") {
             setAuthError(true);
+            return;
+        }
+
+        if (!content|| !title|| !subtitle) {
+            setValidationError(true);
             return;
         }
 
@@ -111,12 +122,21 @@ function CreateBlog(props) {
             <h1 className={"homepage-header"}>Create Blog</h1>
             <span className={"separator"}> </span>
             <form action="" className={classes.form}>
-                <h2>Title</h2>
-                <TextField className={classes.textField} color={"secondary"} variant={"outlined"} id={"title"} name={"title"} value={title} onChange={(e) => setTitle(e.target.value)}/>
-                <h2>Subtitle</h2>
-                <TextField className={classes.textField} color={"secondary"} variant={"outlined"} id={"subtitle"} name={"subtitle"} value={subtitle} onChange={(e) => setSubtitle(e.target.value)}/>
+                <div className={classes.contentHeaderFlex}>
+                    <h2>Title</h2>
+                    {validationError && !title ? <span>This field is required</span> : ""}
+                </div>
+                <TextField className={classes.textField} color={"secondary"} variant={"outlined"} id={"title"} name={"title"} value={title}
+                           onChange={(e) => setTitle(e.target.value)} error={validationError && !title}/>
+                <div className={classes.contentHeaderFlex}>
+                    <h2>Subtitle</h2>
+                    {validationError && !subtitle ? <span>This field is required</span> : ""}
+                </div>
+                <TextField className={classes.textField} color={"secondary"} variant={"outlined"} id={"subtitle"} name={"subtitle"} value={subtitle}
+                           onChange={(e) => setSubtitle(e.target.value)} error={validationError && !subtitle}/>
                 <div className={classes.contentHeaderFlex}>
                     <h2>Content</h2>
+                    {validationError && !content ? <span>This field is required</span> : ""}
                     <p>Try adding some <a href="https://www.markdownguide.org/cheat-sheet/" target={"_blank"}>markdown</a>!</p>
                 </div>
                 <MDEditor
