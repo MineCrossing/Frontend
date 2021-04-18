@@ -98,7 +98,7 @@ function BlogComment(props) {
                 <p className={classes.date}>{`${date.toLocaleDateString()} @ ${date.toLocaleTimeString()}`}</p>
             </div>
             <MDEditor.Markdown className={classes.message} source={props.comment.message} />
-            {!admin ?
+            {admin ?
                 <Button className={classes.deleteButton} variant={"contained"} color={"secondary"} onClick={deleteComment}>Delete</Button>
                 : ""}
         </Paper>
