@@ -10,6 +10,7 @@ class Endpoints {
     static BLOG_POSTS_GET = this.BLOG_POSTS + 'get/';
     static BLOG_POSTS_GET_COMMENTS = this.BLOG_POSTS + 'getComments/';
     static BLOG_POSTS_CREATE_COMMENT = this.BLOG_POSTS + 'createComment/';
+    static BLOG_POSTS_DELETE_COMMENT = this.BLOG_POSTS + 'deleteComment/';
 
     static CHECK_AUTH = this.BASE + 'checkAuth/';
     static LOGOUT = this.BASE + 'logout/';
