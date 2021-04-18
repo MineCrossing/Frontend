@@ -47,3 +47,12 @@
     margin-bottom: 0;
 }
 
+@media only screen and (max-width: 600px) {
+    #latest-news {
+        width: 80%;
+    }
+
+    #discover-container  {
+        width: 80%;
+    }
+}
