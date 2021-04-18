@@ -59,6 +59,7 @@ const BlogHome = props => {
     const [year, setYear] = useState(new Date().getFullYear());
     const [month, setMonth] = useState(new Date().getMonth());
     const [blogs, setBlogs] = useState([]);
+    const admin = useState(props.auth?.admin ?? false);
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
     const monthIntFromString = (month) => months.indexOf(month);
@@ -95,7 +96,7 @@ const BlogHome = props => {
         return () => isMounted = false;
     }, []);
 
-    const createBlogButton = props.auth?.admin ? <Button variant={"contained"} color={"secondary"} href={"/createblog"}>Create New</Button> : "";
+    const createBlogButton = admin ? <Button variant={"contained"} color={"secondary"} href={"/createblog"}>Create New</Button> : "";
     return (
         <main className={classes.blogHome}>
             <div className={classes.blogHeaderContainer}>
@@ -123,7 +124,7 @@ const BlogHome = props => {
                         {createBlogButton}
                     </div>
                     <span className={"separator"}> </span>
-                    <PreviewBlogsList remove={(id) => setBlogs(blogs.filter(b => b.blogPostID !== id))} admin={props.auth?.admin ?? false} blogs={blogs?.filter(b => getBlogDate(b?.date).getMonth() === month && getBlogDate(b?.date).getFullYear() === year)}/>
+                    <PreviewBlogsList remove={(id) => setBlogs(blogs.filter(b => b.blogPostID !== id))} admin={admin ?? false} blogs={blogs?.filter(b => getBlogDate(b?.date).getMonth() === month && getBlogDate(b?.date).getFullYear() === year)}/>
                 </section>
             </section>
         </main>
