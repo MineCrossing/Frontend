@@ -83,10 +83,8 @@ function BlogComment(props) {
             })
         })
             .then( (response) => {
-                if (response.status === 200)
-                    props.remove(props.blog.blogPostID);
-
-                props.refreshComments();
+                if (response)
+                    props.removeComment(props.comment.blogCommentID);
             })
             .catch ((err) => {console.log("something went wrong ", err)});
     };
