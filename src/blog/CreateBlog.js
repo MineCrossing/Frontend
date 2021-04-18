@@ -111,7 +111,7 @@ function CreateBlog(props) {
             .catch ((err) => {console.log("something went wrong ", err)});
     };
 
-    if ((props.auth?.admin ?? false) || authError)
+    if (!(props.auth?.admin ?? false) || authError)
         return <LoginRequired/>;
 
     if (created)
