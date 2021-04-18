@@ -171,7 +171,7 @@ const PreviewBlog = props => {
                 name={"content"}
             />
             <div className={classes.buttonContainer}>
-                    {admin ? adminControls : ""}
+                    {admin && props.auth?.admin ?? false ? adminControls : ""}
                     <Button variant={"contained"} color={"primary"} href={`/viewblog/${props.blog.blogPostID}`}>Read More</Button>
             </div>
         </div>
