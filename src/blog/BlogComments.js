@@ -83,7 +83,7 @@ function BlogComments(props) {
         <div>
             {comments?.length > 0 ? comments
                 .sort((a, b) => a.createdDate - b.createdDate)
-                .map((c, i) => <BlogComment key={i} comment={c}/>)
+                .map((c, i) => <BlogComment refreshComments={() => fetchComments(true)} key={i} comment={c}/>)
                 :  <p className={classes.noComments}>No comments to display</p>}
             {addComment ?
                 <div className={classes.mdeContainer}>
