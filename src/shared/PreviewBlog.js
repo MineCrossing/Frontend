@@ -4,6 +4,7 @@ import {makeStyles} from "@material-ui/core";
 import {Redirect} from "react-router-dom";
 import AuthUtils from "../utils/AuthUtils";
 import Endpoints from "../utils/Endpoints";
+import MDEditor from "@uiw/react-md-editor";
 
 const useStyles = makeStyles(theme => ({
     buttonContainer: {
@@ -77,8 +78,20 @@ const useStyles = makeStyles(theme => ({
             color: "rgba(0,0,0,0.6)"
         }
     },
-    previewBlogPreview: {
-        textAlign: "justify",
+    blogPreview: {
+        boxShadow: "none",
+        "& *": {
+            overflow: "hidden",
+        },
+        "& svg": {
+            display: "none"
+        },
+        "& h1": {
+            fontSize: "1.3em"
+        },
+        "& h2": {
+            fontSize: "1.1em"
+        }
     },
 }));
 
@@ -149,7 +162,13 @@ const PreviewBlog = props => {
                 </div>
             </div>
             <span className={"separator"}> </span>
-            <p className={classes.previewBlogPreview}>{props.blog.preview.replace(/[\/\\#()$~%*<>{}]/g,'')} ...</p>
+            <MDEditor
+                className={classes.blogPreview}
+                value={props.blog.preview}
+                preview={"preview"}
+                hideToolbar={true}
+                name={"content"}
+            />
             <div className={classes.buttonContainer}>
                     {admin ? adminControls : ""}
                     <Button variant={"contained"} color={"primary"} href={`/viewblog/${props.blog.blogPostID}`}>Read More</Button>
