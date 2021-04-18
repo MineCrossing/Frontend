@@ -61,12 +61,15 @@ function BlogComments(props) {
     }, []);
 
     const createComment = () => {
+        const body = JSON.stringify({blogPostID: props.id, message: newComment, userID: AuthUtils.getUserID(), tokenID: AuthUtils.getAuthToken()});
+        console.log(body);
+
         fetch(Endpoints.BLOG_POSTS_CREATE_COMMENT, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({blogPostID: props.id, message: newComment, userID: 3, tokenID: AuthUtils.getAuthToken()})
+            body: body
         })
             .then( (response) => {
                 if (response)

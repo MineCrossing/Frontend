@@ -92,7 +92,7 @@ function CreateBlog(props) {
             .then( (response) => {
                 if (response.status === 200)
                     setCreated(true);
-                else{
+                else {
                     setAuthError(true);
                     AuthUtils.processLogout();
                 }
