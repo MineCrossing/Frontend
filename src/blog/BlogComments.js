@@ -75,6 +75,7 @@ function BlogComments(props) {
                     fetchComments(true);
 
                 setNewComment("");
+                setAddComment(false);
             })
             .catch ((err) => {console.log("something went wrong ", err)});
     };
