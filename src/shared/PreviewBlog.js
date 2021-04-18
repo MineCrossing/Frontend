@@ -120,10 +120,8 @@ const PreviewBlog = props => {
             .then( (response) => {
                 if (response.status === 200)
                     props.remove(props.blog.blogPostID);
-                else {
-                    setAdmin(false);
+                else
                     AuthUtils.processLogout();
-                }
             })
             .catch ((err) => {console.log("something went wrong ", err)});
     };
