@@ -1,11 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import PreviewBlog from "./PreviewBlog";
 
 const PreviewBlogsList = props => {
-    const admin = useState(props.admin);
     const content = props.blogs == null && !props.blogs?.isArray() ?
         <div>No Blogs to display</div> :
-        props.blogs.map((blog, i) => <PreviewBlog remove={props.remove} admin={admin ?? false} blog={blog} key={i}/>);
+        props.blogs.map((blog, i) => <PreviewBlog remove={props.remove} auth={props.auth} blog={blog} key={i}/>);
 
     return (
         content

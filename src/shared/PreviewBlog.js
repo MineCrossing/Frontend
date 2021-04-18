@@ -99,7 +99,7 @@ const useStyles = makeStyles(theme => ({
 const PreviewBlog = props => {
     const classes = useStyles();
     const [redirect, setRedirect] = useState(false);
-    const [admin, setAdmin] = useState(props.admin);
+    const [admin, setAdmin] = useState(props.auth?.admin ?? false);
 
     const deleteBlog = () => {
         let token = AuthUtils.getAuthToken();
