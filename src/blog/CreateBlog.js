@@ -81,7 +81,7 @@ function CreateBlog(props) {
             return;
         }
 
-        if (!content || !title || !subtitle) {
+        if (!content.trim() || !title.trim() || !subtitle.trim()) {
             setValidationError(true);
             return;
         }
@@ -111,7 +111,7 @@ function CreateBlog(props) {
             .catch ((err) => {console.log("something went wrong ", err)});
     };
 
-    if (!(props.auth?.admin ?? false) || authError)
+    if ((props.auth?.admin ?? false) || authError)
         return <LoginRequired/>;
 
     if (created)
@@ -124,19 +124,19 @@ function CreateBlog(props) {
             <form action="" className={classes.form}>
                 <div className={classes.contentHeaderFlex}>
                     <h2>Title</h2>
-                    {validationError && !title ? <span>This field is required</span> : ""}
+                    {validationError && !title.trim() ? <span>This field is required</span> : ""}
                 </div>
                 <TextField className={classes.textField} color={"secondary"} variant={"outlined"} id={"title"} name={"title"} value={title}
-                           onChange={(e) => setTitle(e.target.value)} error={validationError && !title}/>
+                           onChange={(e) => setTitle(e.target.value)} error={validationError && !title.trim()}/>
                 <div className={classes.contentHeaderFlex}>
                     <h2>Subtitle</h2>
-                    {validationError && !subtitle ? <span>This field is required</span> : ""}
+                    {validationError && !subtitle.trim() ? <span>This field is required</span> : ""}
                 </div>
                 <TextField className={classes.textField} color={"secondary"} variant={"outlined"} id={"subtitle"} name={"subtitle"} value={subtitle}
-                           onChange={(e) => setSubtitle(e.target.value)} error={validationError && !subtitle}/>
+                           onChange={(e) => setSubtitle(e.target.value)} error={validationError && !subtitle.trim()}/>
                 <div className={classes.contentHeaderFlex}>
                     <h2>Content</h2>
-                    {validationError && !content ? <span>This field is required</span> : ""}
+                    {validationError && !content.trim() ? <span>This field is required</span> : ""}
                     <p>Try adding some <a href="https://www.markdownguide.org/cheat-sheet/" target={"_blank"}>markdown</a>!</p>
                 </div>
                 <MDEditor
