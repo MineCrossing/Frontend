@@ -117,7 +117,7 @@ function Rules(){
 				<hr />
 
 				<h2 id="support" className="pure-u-3-5">Support</h2>
-				<p id="content-paragraph">For any in-game support or reports, please contact us at support@minecrossing.com <br />
+				<p id="content-paragraph">For any in-game support or reports, please contact us at <a href="mailto:contact@minecrossing.xyz">contact@minecrossing.com</a> <br />
 				Explain the issue with an image and description if possible. <br />Responses may vary depending on the level of traffic within the support channels.</p>
 
 				<hr />

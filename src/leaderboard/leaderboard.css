@@ -71,6 +71,20 @@ table {
     border-bottom: 2px solid #0ed862;
 }
 
+/* .table tbody tr:first-child td:nth-child(1) {
+    color: gold;
+    font-weight: bold;
+}
+.table tbody tr:nth-child(2) td:nth-child(1) {
+    color: #c0c0c0;
+    font-weight: bold;
+}
+.table tbody tr:nth-child(3) td:nth-child(1) {
+    color: #cd7f32;
+    font-weight: bold;
+} */
+
+
 .pageBtn {
     background-color: #0ed862;
     color: white;
@@ -88,3 +102,4 @@ table {
     
     cursor: pointer;
 }
+

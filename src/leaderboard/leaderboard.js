@@ -105,13 +105,13 @@ export default class Leaderboard extends React.Component {
 						<thead>
 							<tr>
 								<th>#</th>
-								<th onClick={() => this.sortData("Name")}>Name</th>
-								<th onClick={() => this.sortData("Level")}>Level</th>
-								<th onClick={() => this.sortData("Kills")}>Kills</th>
-								<th onClick={() => this.sortData("Deaths")}>Deaths</th>
-								<th onClick={() => this.sortData("Wins")}>Wins</th>
-								<th onClick={() => this.sortData("Losses")}>Losses</th>
-								<th onClick={() => this.sortData("Quests")}>Quests</th>
+								<th onClick={() => this.sortData("Name")}>Name </th>
+								<th onClick={() => this.sortData("Level")}>Level <i class="fas fa-sort"></i></th>
+								<th onClick={() => this.sortData("Kills")}>Kills <i class="fas fa-sort"></i></th>
+								<th onClick={() => this.sortData("Deaths")}>Deaths <i class="fas fa-sort"></i></th>
+								<th onClick={() => this.sortData("Wins")}>Wins <i class="fas fa-sort"></i></th>
+								<th onClick={() => this.sortData("Losses")}>Losses <i class="fas fa-sort"></i></th>
+								<th onClick={() => this.sortData("Quests")}>Quests <i class="fas fa-sort"></i></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -120,11 +120,11 @@ export default class Leaderboard extends React.Component {
 					</table>
 					<br />
 
-					<button className="pageBtn" onClick={this.handleFirstClick} disabled={disabledPrevious}>First</button>
-					<button className="pageBtn" onClick={this.handlePreviousClick} disabled={disabledPrevious}>Previous</button>
+					<button className="pageBtn" onClick={this.handleFirstClick} disabled={disabledPrevious}><i class="fas fa-fast-backward"></i> First</button>
+					<button className="pageBtn" onClick={this.handlePreviousClick} disabled={disabledPrevious}><i class="fas fa-step-backward"></i> Previous</button>
      					Page {this.state.page} of {noOfPages}
-					<button className="pageBtn" onClick={this.handleNextClick} disabled={disabledNext}>Next</button>
-					<button className="pageBtn" onClick={this.handleLastClick} disabled={disabledNext}>Last</button>
+					<button className="pageBtn" onClick={this.handleNextClick} disabled={disabledNext}>Next <i class="fas fa-step-forward"></i></button>
+					<button className="pageBtn" onClick={this.handleLastClick} disabled={disabledNext}>Last <i class="fas fa-fast-forward"></i></button>
 				</div>
 			</div>
 		);
