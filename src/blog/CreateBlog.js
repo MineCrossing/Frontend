@@ -81,7 +81,7 @@ function CreateBlog(props) {
             return;
         }
 
-        if (!content|| !title|| !subtitle) {
+        if (!content || !title || !subtitle) {
             setValidationError(true);
             return;
         }
@@ -103,7 +103,7 @@ function CreateBlog(props) {
             .then( (response) => {
                 if (response.status === 200)
                     setCreated(true);
-                else {
+                else if (response.status === 401) {
                     setAuthError(true);
                     AuthUtils.processLogout();
                 }
@@ -111,7 +111,7 @@ function CreateBlog(props) {
             .catch ((err) => {console.log("something went wrong ", err)});
     };
 
-    if (!(props.auth?.admin ?? false) || authError)
+    if ((props.auth?.admin ?? false) || authError)
         return <LoginRequired/>;
 
     if (created)
